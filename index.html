@@ -672,7 +672,7 @@ const byId=id=>M.find(m=>m.id===id);
 
 /* ================= kirim nilai ke Google Sheet dosen ================= */
 // Tempel URL Web App Google Apps Script di sini (berakhiran /exec). Kosong = fitur nonaktif.
-const SHEET_URL='';
+const SHEET_URL='https://script.google.com/macros/s/AKfycbyjisCqYD2dgm-VV6EHWaOzap36gizbFBvZ7fZcwMFsiF8T6I9jjJ6knZT39uiybyUIOA/exec';
 function queue(){try{return JSON.parse(localStorage.getItem('ningtika-antrian')||'[]')}catch(e){return[]}}
 function setQueue(q){try{localStorage.setItem('ningtika-antrian',JSON.stringify(q))}catch(e){}}
 async function postSheet(d){await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}

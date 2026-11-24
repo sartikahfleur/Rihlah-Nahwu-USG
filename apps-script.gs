@@ -11,7 +11,7 @@ function doPost(e) {
   lock.waitLock(15000);
   try {
     const d = JSON.parse(e.postData.contents);
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = SpreadsheetApp.openById('17HDWpKwrR-WjUbeyB_psTOzQFDrpKliLbQ7GR-zSBko');
     const sh = ss.getSheetByName(NAMA_SHEET) || ss.insertSheet(NAMA_SHEET);
     if (sh.getLastRow() === 0) {
       sh.appendRow(KOLOM);
