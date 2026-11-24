@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rihlah Nahwu bersama Ning Tika · Bahasa Arab Semester 1</title>
+<meta name="description" content="Media belajar Bahasa Arab (Nahwu dasar) Prodi PAI Universitas Sunan Gresik bersama tutor AI Ning Tika.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!--
+Rihlah Nahwu bersama Ning Tika
+MK Bahasa Arab (AI1E23) · Semester 1 · Prodi PAI Universitas Sunan Gresik
+Dosen: Sartikah, Lc., M.A.
+Cakupan: Pertemuan 1–6, Simulasi UTS (Pertemuan 8), Pertemuan 9.
+AI: window.claude (bila dibuka sebagai artifact Claude) → Puter.js (bila di GitHub Pages) → mode luring.
+-->
+<style>
+:root{--navy:#13285c;--navy2:#1c3a7a;--blue:#2f6fd6;--sky:#d9ecff;--pink:#e05994;--pink2:#f48fb8;--rose:#fbd3e3;--blush:#fff5f9;--gold:#d4ad56;--ink:#1b2245;--mute:#5c6487;--ok:#1f9d6b;--bad:#d64561;--card:#ffffffee;--r:18px}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:var(--blush);line-height:1.6;min-height:100vh;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke-width='1.1'%3E%3Cg stroke='%232f6fd6' stroke-opacity='.10'%3E%3Crect x='24' y='24' width='36' height='36'/%3E%3Crect x='24' y='24' width='36' height='36' transform='rotate(45 42 42)'/%3E%3C/g%3E%3Ccircle cx='42' cy='42' r='7' stroke='%23e05994' stroke-opacity='.14'/%3E%3Cpath d='M0 0L24 24M84 0L60 24M0 84L24 60M84 84L60 60' stroke='%23e05994' stroke-opacity='.08'/%3E%3C/g%3E%3C/svg%3E")}
+a{color:var(--blue)}
+button{font:inherit;cursor:pointer}
+.ar{font-family:Amiri,"Traditional Arabic",serif;font-size:1.35em;line-height:1.9;direction:rtl;unicode-bidi:isolate}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+/* header */
+header.top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,#5a3d8f 100%);color:#fff;position:relative;overflow:hidden;padding:26px 0 70px}
+header.top::before{content:"";position:absolute;inset:0;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Crect x='17' y='17' width='26' height='26'/%3E%3Crect x='17' y='17' width='26' height='26' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E")}
+header.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:46px;background:var(--blush);
+-webkit-mask:radial-gradient(28px 30px at 28px 0,transparent 98%,#000) 0 0/56px 46px repeat-x;mask:radial-gradient(28px 30px at 28px 0,transparent 98%,#000) 0 0/56px 46px repeat-x}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:1;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--pink2));display:grid;place-items:center;font-family:Amiri,serif;font-size:26px;box-shadow:0 6px 18px #0004}
+.brand b{font-family:"Reem Kufi",sans-serif;font-size:20px;letter-spacing:.3px;display:block}
+.brand small{opacity:.8;font-size:12.5px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;background:#ffffff1f;border:1px solid #ffffff33;font-size:12.5px;font-weight:600}
+.pill i{width:8px;height:8px;border-radius:50%;background:#f5c04a;display:inline-block}
+.pill.claude i,.pill.puter i{background:#5be3a4}
+.pill.offline i{background:#ff8fa8}
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:26px;align-items:center;margin-top:26px}
+.hero h1{font-family:"Reem Kufi",sans-serif;font-size:clamp(28px,4.4vw,44px);line-height:1.15;margin:0 0 6px}
+.hero h1 span{color:var(--pink2)}
+.hero .arT{font-family:Amiri,serif;font-size:clamp(30px,4.8vw,48px);color:#ffd9e8;direction:rtl;margin:0}
+.hero p{opacity:.92;max-width:560px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.ningCard{background:#ffffff14;border:1px solid #ffffff2e;border-radius:28px 28px 28px 6px;padding:18px;backdrop-filter:blur(4px);display:flex;gap:14px;align-items:flex-start}
+.ningCard p{margin:0;font-size:14.5px}
+.ningCard b{color:#ffd9e8}
+.prog{margin-top:12px;background:#ffffff26;border-radius:99px;height:10px;overflow:hidden}
+.prog>div{height:100%;background:linear-gradient(90deg,var(--pink2),#9cc8ff);border-radius:99px;transition:width .5s}
+/* buttons */
+.btn{border:0;border-radius:12px;padding:10px 16px;font-weight:700;background:#fff;color:var(--navy);box-shadow:0 2px 0 #0001;border:1px solid #d9def0;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn.pri{background:linear-gradient(135deg,var(--pink),#c9457f);color:#fff;border:0;box-shadow:0 6px 16px #e0599455}
+.btn.blue{background:linear-gradient(135deg,var(--blue),var(--navy2));color:#fff;border:0;box-shadow:0 6px 16px #2f6fd644}
+.btn.ghost{background:#ffffff22;color:#fff;border:1px solid #ffffff55}
+.btn.sm{padding:6px 11px;font-size:13px;border-radius:10px}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+/* grid modules */
+main{padding:6px 0 90px}
+.secT{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:8px 0 16px;flex-wrap:wrap}
+.secT h2{font-family:"Reem Kufi",sans-serif;color:var(--navy);margin:0;font-size:24px}
+.secT p{margin:0;color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.door{position:relative;background:var(--card);border:1.5px solid #e6e9f6;border-radius:120px 120px 20px 20px/96px 96px 20px 20px;padding:34px 18px 18px;text-align:center;box-shadow:0 10px 28px #13285c12;transition:transform .18s,box-shadow .18s;cursor:pointer;overflow:hidden}
+.door:hover{transform:translateY(-4px);box-shadow:0 16px 34px #13285c22}
+.door::before{content:"";position:absolute;left:12px;right:12px;top:10px;height:70%;border:1.5px dashed #2f6fd633;border-bottom:0;border-radius:110px 110px 0 0/88px 88px 0 0;pointer-events:none}
+.door .num{width:54px;height:54px;margin:0 auto 8px;display:grid;place-items:center;font-family:Amiri,serif;font-size:28px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--navy));clip-path:polygon(50% 0,64% 15%,85% 15%,85% 36%,100% 50%,85% 64%,85% 85%,64% 85%,50% 100%,36% 85%,15% 85%,15% 64%,0 50%,15% 36%,15% 15%,36% 15%)}
+.door.p8 .num{background:linear-gradient(135deg,var(--pink),#9a3a8a)}
+.door .arN{font-family:Amiri,serif;font-size:21px;color:var(--pink);direction:rtl}
+.door h3{margin:2px 0 4px;font-size:16px;color:var(--navy);line-height:1.35}
+.door small{color:var(--mute);font-size:12.5px;display:block}
+.door .st{margin-top:10px;font-size:12.5px;font-weight:700;color:var(--mute)}
+.door.done{border-color:#9fd9bf}
+.door.done .st{color:var(--ok)}
+.idCard{background:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 10px 30px #13285c14;border:1.5px solid #f3cfe0;margin:-30px 0 22px;position:relative;z-index:2}
+.idCard h3{margin:0 0 4px;font-family:"Reem Kufi",sans-serif;color:var(--navy);font-size:18px}
+.idCard .row3{display:grid;grid-template-columns:2fr 1.2fr .8fr auto;gap:10px;align-items:end;margin-top:10px}
+.idCard label{font-size:13px;font-weight:700;color:var(--mute)}
+.idCard .who{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.idCard .who b{color:var(--navy)}
+@media (max-width:760px){.idCard .row3{grid-template-columns:1fr 1fr}.idCard .row3 .btn{grid-column:1/-1}}
+.tips{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.tip{background:#fff;border-radius:var(--r);padding:16px;border-left:5px solid var(--pink2);box-shadow:0 6px 18px #13285c0c;font-size:14px}
+.tip b{color:var(--navy)}
+/* module view */
+#mod{display:none}
+.modHead{background:#fff;border-radius:26px;padding:18px 20px;box-shadow:0 10px 30px #13285c14;display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:-30px;position:relative;z-index:2}
+.modHead .num{width:58px;height:58px;flex:none}
+.modHead h2{margin:0;font-family:"Reem Kufi",sans-serif;color:var(--navy);font-size:22px;line-height:1.3}
+.modHead .arN{font-family:Amiri,serif;color:var(--pink);font-size:22px;direction:rtl}
+.modHead small{color:var(--mute)}
+.modHead .sp{flex:1}
+.tabs{display:flex;gap:6px;margin:18px 0 14px;flex-wrap:wrap}
+.tab{border:1.5px solid #dfe3f3;background:#fff;border-radius:99px;padding:8px 15px;font-weight:700;color:var(--mute);font-size:14px}
+.tab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.panel{background:var(--card);border-radius:22px;padding:22px;box-shadow:0 10px 30px #13285c10;border:1px solid #edf0fa}
+.panel h3{font-family:"Reem Kufi",sans-serif;color:var(--navy);margin:18px 0 8px;font-size:19px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px}
+.tujuan{background:linear-gradient(135deg,#eaf3ff,#fff0f6);border-radius:16px;padding:12px 16px;font-size:14px;margin-bottom:14px;border:1px solid #dfe8fb}
+.tujuan b{color:var(--navy)}
+.matan{background:linear-gradient(135deg,#13285c,#2a2e78);color:#fff;border-radius:18px;padding:16px 18px;margin:12px 0;position:relative}
+.matan .ar{display:block;font-size:1.5em;text-align:right;color:#ffe3ee}
+.matan .tr{font-size:14px;opacity:.9;margin-top:6px}
+.matan .src{font-size:12px;opacity:.7;margin-top:4px}
+.ex{display:flex;align-items:center;gap:10px;justify-content:space-between;background:#fff;border:1px solid #e7eaf6;border-radius:14px;padding:8px 12px;margin:6px 0;flex-wrap:wrap}
+.ex .ar{font-size:1.45em;color:var(--navy)}
+.ex .tr{font-size:13.5px;color:var(--mute);flex:1;min-width:160px}
+.say{border:0;background:var(--rose);color:#a5245e;border-radius:99px;width:32px;height:32px;flex:none;font-size:15px}
+.say:hover{background:var(--pink2);color:#fff}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0;font-size:14px;overflow:hidden;border-radius:14px;border:1px solid #e3e7f5}
+table.t th{background:var(--navy);color:#fff;padding:9px 10px;text-align:left;font-weight:700}
+table.t td{padding:8px 10px;border-top:1px solid #eef0f8;background:#fff;vertical-align:top}
+table.t tr:nth-child(even) td{background:#fbf7fd}
+table.t td .ar{font-size:1.3em}
+.scroll{overflow-x:auto}
+.note{background:#fff6e5;border:1px solid #f3dfb0;border-radius:14px;padding:10px 14px;font-size:14px;margin:10px 0}
+.note.pink{background:#fff0f6;border-color:#f8c9dc}
+.note.blue{background:#eef5ff;border-color:#cfe0fb}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.chip{border:1px solid #d9def0;background:#fff;border-radius:99px;padding:6px 12px;font-size:13px;color:var(--navy)}
+.chip:hover{border-color:var(--pink);color:var(--pink)}
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;font-size:14px;color:var(--mute)}
+.bar{height:8px;background:#e8ecf8;border-radius:99px;overflow:hidden;flex:1;min-width:120px}
+.bar>div{height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));transition:width .3s}
+.qcard{background:#fff;border-radius:20px;padding:20px;border:1px solid #e6e9f6}
+.qcard .q{font-weight:700;font-size:16px;color:var(--navy)}
+.qcard .qar{display:block;text-align:center;font-family:Amiri,serif;font-size:2em;direction:rtl;color:var(--navy);background:linear-gradient(135deg,#eef5ff,#fff1f7);border-radius:16px;padding:10px;margin:12px 0}
+.qcard .qar .say{vertical-align:middle;margin-right:8px}
+.opts{display:grid;gap:9px;margin-top:12px}
+.opt{text-align:left;border:1.5px solid #dfe3f3;background:#fff;border-radius:14px;padding:11px 14px;font-size:15px;color:var(--ink);display:flex;gap:10px;align-items:center}
+.opt .k{width:26px;height:26px;border-radius:8px;background:#eef1fa;display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--navy);flex:none}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.ok{border-color:var(--ok);background:#ebfaf3}
+.opt.bad{border-color:var(--bad);background:#fff0f3}
+.opt:disabled{cursor:default}
+.opt .ar{font-size:1.3em}
+.fb{border-radius:14px;padding:12px 14px;margin-top:12px;font-size:14.5px}
+.fb.ok{background:#e9f8f1;border:1px solid #bfe8d5}
+.fb.bad{background:#fff0f3;border:1px solid #f6c7d2}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result{text-align:center;padding:10px}
+.result .big{font-family:"Reem Kufi",sans-serif;font-size:54px;color:var(--pink);line-height:1}
+.ai{background:linear-gradient(135deg,#f2f7ff,#fff3f8);border:1px solid #dfe6fa;border-radius:16px;padding:12px 14px;margin-top:12px;font-size:14.5px}
+.ai .who{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--navy);margin-bottom:4px;font-size:13.5px}
+.tag{font-size:11px;font-weight:700;background:var(--rose);color:#a5245e;padding:2px 8px;border-radius:99px}
+textarea,input[type=text]{width:100%;border:1.5px solid #d9def0;border-radius:14px;padding:11px 13px;font:inherit;background:#fff;color:var(--ink)}
+textarea:focus,input:focus{outline:2px solid var(--pink2);border-color:transparent}
+textarea.arIn,input.arIn{font-family:Amiri,serif;font-size:22px;direction:rtl;text-align:right}
+.wtask{background:#fff;border:1px solid #e6e9f6;border-radius:18px;padding:16px;margin-bottom:14px}
+.wtask .no{font-weight:800;color:var(--pink);font-size:13px}
+.kb{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;direction:rtl}
+.kb button{border:1px solid #dfe3f3;background:#f7f8fd;border-radius:8px;min-width:32px;height:32px;font-family:Amiri,serif;font-size:18px;color:var(--navy)}
+.kb button.w{min-width:52px;font-family:"Plus Jakarta Sans";font-size:11px}
+.timer{font-weight:800;color:var(--pink);font-variant-numeric:tabular-nums}
+/* chat drawer */
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:10px;border:0;background:linear-gradient(135deg,var(--pink),#b8407a);color:#fff;border-radius:99px;padding:8px 18px 8px 8px;font-weight:800;box-shadow:0 10px 26px #e0599466}
+.fab .av{width:42px;height:42px}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:#fff;z-index:50;box-shadow:-10px 0 40px #13285c33;transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.dHead{background:linear-gradient(135deg,var(--navy),#5a3d8f);color:#fff;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.dHead b{display:block;font-family:"Reem Kufi",sans-serif;font-size:18px}
+.dHead small{opacity:.85;font-size:12px}
+.dHead .x{margin-left:auto;background:#ffffff22;border:0;color:#fff;width:34px;height:34px;border-radius:10px;font-size:18px}
+.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--blush)}
+.bub{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.55}
+.bub.me{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.bub.ning{align-self:flex-start;background:#fff;border:1px solid #f1d6e3;border-bottom-left-radius:4px}
+.bub .ar{font-size:1.25em}
+.dFoot{padding:10px;border-top:1px solid #eee;background:#fff}
+.dFoot .row{display:flex;gap:8px}
+.dFoot input{flex:1}
+.overlay{position:fixed;inset:0;background:#13285c55;z-index:45;display:none}
+.overlay.on{display:block}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;transition:.25s;z-index:60;pointer-events:none;max-width:90vw}
+.toast.on{opacity:1;transform:translateX(-50%)}
+footer{text-align:center;color:var(--mute);font-size:12.5px;padding:24px 16px 100px}
+footer .orn{font-family:Amiri,serif;color:var(--pink);font-size:22px;direction:rtl}
+.typing::after{content:"…";animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.fab span{display:none}.fab{padding:8px}.panel{padding:16px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <div class="topbar">
+   <div class="brand"><div class="logo">ض</div><div><b>Rihlah Nahwu</b><small>Bahasa Arab · Semester 1 · Prodi PAI Universitas Sunan Gresik</small></div></div>
+   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <button class="btn ghost sm" id="homeBtn" hidden>← Semua pertemuan</button>
+    <span class="pill" id="aiPill"><i></i><span id="aiTxt">AI: menghubungkan…</span></span>
+   </div>
+  </div>
+  <div class="hero" id="hero">
+   <div>
+    <p class="arT">رِحْلَةُ النَّحْوِ</p>
+    <h1>Belajar Nahwu bersama <span>Ning Tika</span></h1>
+    <p>Selamat datang, Mas dan Mbak mahasiswa! Di sini kalian belajar dasar-dasar nahwu berdasarkan <i>Matan al-Ajurumiyyah</i> dan <i>Nazham al-'Imrithi</i>. Baca materi, dengarkan lafalnya, kerjakan latihan, lalu tanyakan apa saja kepada <b>Ning Tika</b>, tutor AI yang siap membimbing kalian pelan-pelan.</p>
+    <div class="cta"><button class="btn pri" id="startBtn">Mulai dari Pertemuan 1</button><button class="btn ghost" id="askBtn">Tanya Ning Tika</button></div>
+   </div>
+   <div class="ningCard">
+    <svg class="av" width="64" height="64" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fbd3e3"/><path d="M20 5a11 11 0 0 0-11 12v9q0 6 11 9 11-3 11-9v-9A11 11 0 0 0 20 5Z" fill="#e05994"/><circle cx="20" cy="17.5" r="7" fill="#f1c7a5"/><path d="M13 16a7 7 0 0 1 14 0q-7-5-14 0Z" fill="#c9457f"/><circle cx="17.4" cy="18" r=".9" fill="#1b2245"/><circle cx="22.6" cy="18" r=".9" fill="#1b2245"/><path d="M17.6 21q2.4 1.8 4.8 0" stroke="#a5245e" stroke-width=".9" fill="none" stroke-linecap="round"/><path d="M8 40a12 12 0 0 1 24 0Z" fill="#2f6fd6"/></svg>
+    <div>
+     <p><b>Ning Tika:</b> "Ahlan wa sahlan! Ndak usah takut sama nahwu, ya. Kita mulai dari yang paling dasar. Kalau bingung, tanya saja. Ning ndak langsung kasih jawaban, tapi kita pikir bareng-bareng."</p>
+     <div class="prog" aria-label="Kemajuan belajar"><div id="progBar" style="width:0"></div></div>
+     <small id="progTxt" style="opacity:.85;font-size:12.5px">0 dari 8 pertemuan tuntas</small>
+    </div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<main class="wrap">
+ <section id="home">
+  <div class="idCard" id="idCard"></div>
+  <div class="secT"><h2>Peta Perjalanan</h2><p>Pilih pertemuan. Sebuah pertemuan tuntas bila nilai latihanmu ≥ 80 (UTS ≥ 75).</p></div>
+  <div class="grid" id="grid"></div>
+  <div class="tips">
+   <div class="tip"><b>1. Baca materi.</b> Tekan 🔊 untuk mendengar lafal Arab. Perhatikan harakat akhir kata, karena di situlah nahwu bekerja.</div>
+   <div class="tip"><b>2. Kerjakan latihan.</b> Kalau salah, tekan "Ning Tika, kenapa salah?" untuk mendapat penjelasan bertahap.</div>
+   <div class="tip"><b>3. Praktik menulis.</b> Tulis jawaban Arab dengan papan huruf yang tersedia, lalu minta Ning Tika memeriksanya.</div>
+   <div class="tip"><b>4. Simulasi UTS.</b> Setelah Pertemuan 1–6, coba Simulasi UTS 30 menit untuk mengukur kesiapanmu.</div>
+  </div>
+ </section>
+ <section id="mod"></section>
+</main>
+
+<footer>
+ <div class="orn">وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ</div>
+ MK Bahasa Arab (AI1E23) · Prodi Pendidikan Agama Islam · Universitas Sunan Gresik<br>
+ Dosen: Sartikah, Lc., M.A. · Rujukan utama: Matan al-Ajurumiyyah & Nazham al-'Imrithi<br>
+ <span style="opacity:.75">Kemajuan belajar hanya tersimpan di perangkatmu sendiri.</span>
+</footer>
+
+<button class="fab" id="fab" aria-label="Tanya Ning Tika"><svg class="av" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fbd3e3"/><path d="M20 5a11 11 0 0 0-11 12v9q0 6 11 9 11-3 11-9v-9A11 11 0 0 0 20 5Z" fill="#e05994"/><circle cx="20" cy="17.5" r="7" fill="#f1c7a5"/><path d="M13 16a7 7 0 0 1 14 0q-7-5-14 0Z" fill="#c9457f"/><circle cx="17.4" cy="18" r=".9" fill="#1b2245"/><circle cx="22.6" cy="18" r=".9" fill="#1b2245"/><path d="M17.6 21q2.4 1.8 4.8 0" stroke="#a5245e" stroke-width=".9" fill="none" stroke-linecap="round"/><path d="M8 40a12 12 0 0 1 24 0Z" fill="#2f6fd6"/></svg><span>Tanya Ning Tika</span></button>
+<div class="overlay" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Obrolan dengan Ning Tika">
+ <div class="dHead"><svg width="44" height="44" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fbd3e3"/><path d="M20 5a11 11 0 0 0-11 12v9q0 6 11 9 11-3 11-9v-9A11 11 0 0 0 20 5Z" fill="#e05994"/><circle cx="20" cy="17.5" r="7" fill="#f1c7a5"/><path d="M13 16a7 7 0 0 1 14 0q-7-5-14 0Z" fill="#c9457f"/><circle cx="17.4" cy="18" r=".9" fill="#1b2245"/><circle cx="22.6" cy="18" r=".9" fill="#1b2245"/><path d="M17.6 21q2.4 1.8 4.8 0" stroke="#a5245e" stroke-width=".9" fill="none" stroke-linecap="round"/><path d="M8 40a12 12 0 0 1 24 0Z" fill="#2f6fd6"/></svg><div><b>Ning Tika</b><small id="dSub">Tutor nahwu · membimbing dengan pertanyaan</small></div><button class="x" id="dClose" aria-label="Tutup">×</button></div>
+ <div class="msgs" id="msgs"></div>
+ <div class="dFoot"><div class="chips" id="dChips"></div><div class="row"><input type="text" id="chatIn" placeholder="Tanya Ning Tika tentang nahwu…" aria-label="Pertanyaan untuk Ning Tika"><button class="btn pri" id="chatSend">Kirim</button></div></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= util ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const AR=t=>`<span class="ar" lang="ar">${t}</span>`;
+const SAY=t=>`<button class="say" data-say="${esc(t)}" aria-label="Dengarkan">🔊</button>`;
+const EX=(a,tr)=>`<div class="ex">${SAY(a)}<span class="ar" lang="ar">${a}</span><span class="tr">${tr}</span></div>`;
+const MATAN=(a,tr,src='Matan al-Ajurumiyyah')=>`<div class="matan"><span class="ar" lang="ar">${a}</span><div class="tr">${tr}</div><div class="src">— ${src} ${SAY(a).replace('class="say"','class="say" style="width:26px;height:26px;font-size:12px;margin-left:6px"')}</div></div>`;
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const toArNum=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2600)}
+function md(s){s=esc(s);s=s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>');
+ s=s.replace(/([؀-ۿ][؀-ۿً-ْٰ\s،؟]*[؀-ۿً-ْٰ])/g,'<span class="ar" lang="ar">$1</span>');
+ return s.split(/\n{2,}/).map(p=>p.replace(/\n/g,'<br>')).join('<br><br>')}
+const strip=s=>String(s).replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/[؟?.,،!]/g,'').replace(/\s+/g,' ').trim();
+
+/* ================= suara Arab ================= */
+function sayAr(t){
+ if(!('speechSynthesis' in window)){toast('Perangkat ini belum mendukung suara.');return}
+ speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ar-SA';u.rate=.8;
+ const v=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang));if(v)u.voice=v;else toast('Suara Arab belum terpasang di perangkat ini; lafal mungkin kurang tepat.');
+ speechSynthesis.speak(u)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){e.stopPropagation();sayAr(b.dataset.say)}});
+
+/* ================= data pertemuan ================= */
+// Q(soal, teksArab, [jawabanBenar, pengecoh...], pembahasan)
+const Q=(q,ar,o,ex)=>({q,ar,o,ex});
+const M=[
+{id:'p1',no:1,arN:'تَارِيخُ عِلْمِ النَّحْوِ',t:'Kontrak Belajar, Sejarah & Kedudukan Ilmu Nahwu',sub:'Sub-CPMK1',
+ goal:'Mahasiswa mampu menjelaskan minimal 2 poin latar belakang kemunculan ilmu nahwu dan kedudukannya sebagai ilmu alat.',
+ materi:()=>`
+<h3>Apa itu Nahwu?</h3>
+<p><b>Nahwu</b> adalah ilmu tentang kaidah untuk mengetahui keadaan <b>akhir kata</b> bahasa Arab ketika tersusun dalam kalimat: apakah akhirnya berubah (<i>mu'rab</i>) atau tetap (<i>mabni</i>), dan bagaimana harakatnya. Bandingkan:</p>
+${EX('جَاءَ مُحَمَّدٌ','Muhammad telah datang (akhir kata: dhammah)')}
+${EX('رَأَيْتُ مُحَمَّدًا','Aku melihat Muhammad (akhir kata: fathah)')}
+${EX('مَرَرْتُ بِمُحَمَّدٍ','Aku melewati Muhammad (akhir kata: kasrah)')}
+<p>Kata <span class="ar">مُحَمَّد</span> sama, tetapi harakat akhirnya berbeda karena <b>kedudukannya</b> dalam kalimat berbeda. Inilah yang dipelajari nahwu.</p>
+<div class="note blue"><b>Nahwu vs Sharaf.</b> Nahwu membahas <b>akhir kata</b> dalam kalimat. Sharaf membahas <b>perubahan bentuk kata</b>, misalnya ${AR('كَتَبَ ← يَكْتُبُ ← كَاتِبٌ')}.</div>
+<h3>Mengapa Nahwu Lahir?</h3>
+<ul>
+<li>Setelah Islam meluas ke wilayah non-Arab (Persia, Romawi, dll.), muncul <b>lahn</b>, yaitu kesalahan berbahasa Arab, termasuk dalam membaca Al-Qur'an.</li>
+<li>Riwayat masyhur menyebut seseorang membaca QS at-Taubah: 3 ${AR('أَنَّ اللَّهَ بَرِيءٌ مِنَ الْمُشْرِكِينَ وَرَسُولُهُ')} dengan <i>kasrah</i> pada ${AR('وَرَسُولِهِ')}. Akibatnya maknanya menjadi rusak: "Allah berlepas diri dari kaum musyrik <u>dan dari Rasul-Nya</u>". Padahal yang benar ${AR('وَرَسُولُهُ')} dengan dhammah, artinya "Allah dan Rasul-Nya berlepas diri dari kaum musyrik".</li>
+<li>Untuk menjaga kemurnian bacaan Al-Qur'an dan pemahaman Hadits, disusunlah kaidah nahwu.</li>
+</ul>
+<h3>Tokoh dan Mazhab</h3>
+<div class="scroll"><table class="t"><tr><th>Tokoh / Kitab</th><th>Peran</th></tr>
+<tr><td>Abu al-Aswad ad-Du'ali</td><td>Masyhur disebut peletak dasar nahwu, atas arahan Sayyidina Ali bin Abi Thalib (menurut riwayat yang populer).</td></tr>
+<tr><td>Al-Khalil bin Ahmad &amp; Sibawaih</td><td>Tokoh mazhab <b>Bashrah</b>. Sibawaih menulis <i>Al-Kitab</i>, kitab nahwu monumental.</td></tr>
+<tr><td>Al-Kisa'i &amp; Al-Farra'</td><td>Tokoh mazhab <b>Kufah</b>.</td></tr>
+<tr><td>Ibnu Ajurrum ash-Shanhaji (w. 723 H)</td><td>Penulis <i>Matan al-Ajurumiyyah</i>, kitab dasar yang kita pakai semester ini.</td></tr>
+<tr><td>Syarafuddin Yahya al-'Imrithi</td><td>Menggubah Ajurumiyyah menjadi syair: <i>Nazham al-'Imrithi</i>.</td></tr>
+<tr><td>Ibnu Malik</td><td>Penulis <i>Alfiyah</i>, 1000-an bait nahwu-sharaf (pengayaan).</td></tr>
+</table></div>
+<h3>Kedudukan Nahwu: Ilmu Alat</h3>
+<p>Nahwu disebut <b>ilmu alat</b> karena ia adalah <i>sarana</i> untuk memahami Al-Qur'an, Hadits, dan kitab-kitab keislaman. Sebagai calon guru PAI, kemampuan membaca teks Arab dengan benar akan menjadi bekal untuk Ulumul Qur'an, Ulumul Hadits, Fiqh, dan kajian kitab kuning.</p>
+<div class="note pink"><b>Kontrak belajar singkat:</b> hadir dan aktif (partisipasi 15%), kerjakan kuis dan lembar kerja, UTS 20% dan UAS 20%. Rincian lengkap ada di RPS dari dosen.</div>`,
+ quiz:[
+ Q('Siapa yang masyhur disebut sebagai peletak dasar ilmu nahwu?','',['Abu al-Aswad ad-Du\'ali','Sibawaih','Ibnu Malik','Ibnu Ajurrum'],'Menurut riwayat yang masyhur, Abu al-Aswad ad-Du\'ali meletakkan dasar nahwu atas arahan Sayyidina Ali bin Abi Thalib. Sibawaih datang kemudian dan menyusun Al-Kitab.'),
+ Q('Faktor utama yang mendorong lahirnya ilmu nahwu adalah…','',['Merebaknya lahn (kesalahan berbahasa) setelah Islam meluas ke wilayah non-Arab','Kebutuhan menulis puisi Arab','Perintah membuat kamus Arab','Perdagangan antara Arab dan Persia'],'Lahn mulai muncul ketika banyak orang non-Arab masuk Islam. Kesalahan itu bahkan sampai pada bacaan Al-Qur\'an, sehingga dibutuhkan kaidah.'),
+ Q('Nahwu disebut "ilmu alat" karena…','',['Menjadi sarana untuk memahami Al-Qur\'an, Hadits, dan kitab keislaman','Membahas alat-alat tulis Arab','Hanya dipakai untuk menulis kaligrafi','Merupakan ilmu tentang alat musik Arab'],'Ilmu alat adalah ilmu yang menjadi wasilah (sarana) untuk memahami ilmu lain, terutama teks-teks keagamaan.'),
+ Q('Kitab nahwu monumental karya Sibawaih berjudul…','',['Al-Kitab','Alfiyah','Al-Ajurumiyyah','Jami\' ad-Durus al-\'Arabiyyah'],'Karya Sibawaih dikenal cukup dengan nama "Al-Kitab". Alfiyah karya Ibnu Malik; Jami\' ad-Durus karya al-Ghulayaini.'),
+ Q('Penulis Matan al-Ajurumiyyah adalah…','',['Ibnu Ajurrum ash-Shanhaji','Ibnu Malik','Syarafuddin al-\'Imrithi','Musthafa al-Ghulayaini'],'Nama lengkapnya Abu Abdillah Muhammad bin Muhammad bin Dawud ash-Shanhaji, dikenal sebagai Ibnu Ajurrum.'),
+ Q('Nazham al-\'Imrithi adalah…','',['Gubahan syair (nazham) dari Matan al-Ajurumiyyah','Kitab tafsir Al-Qur\'an','Kitab sharaf tentang tashrif','Kamus bahasa Arab'],'Al-\'Imrithi menggubah isi Ajurumiyyah dalam bentuk bait-bait syair agar mudah dihafal.'),
+ Q('Fokus utama pembahasan ilmu nahwu adalah…','',['Keadaan akhir kata (i\'rab dan bina\') dalam susunan kalimat','Perubahan bentuk kata dasar menjadi kata lain','Cara menulis huruf Arab yang indah','Asal-usul kosakata Arab'],'Nahwu = akhir kata dalam kalimat. Perubahan bentuk kata (tashrif) adalah wilayah ilmu sharaf.'),
+ Q('Perubahan كَتَبَ → يَكْتُبُ → كَاتِبٌ dibahas dalam ilmu…','كَتَبَ ← يَكْتُبُ ← كَاتِبٌ',['Sharaf','Nahwu','Balaghah','\'Arudh'],'Ini perubahan bentuk kata (wazan), wilayah ilmu sharaf. Nahwu baru bekerja ketika kata itu masuk ke dalam kalimat.'),
+ Q('Dua mazhab nahwu klasik yang paling terkenal adalah…','',['Bashrah dan Kufah','Makkah dan Madinah','Baghdad dan Kairo','Andalusia dan Maroko'],'Bashrah (al-Khalil, Sibawaih) dan Kufah (al-Kisa\'i, al-Farra\') adalah dua mazhab besar yang sering berbeda pendapat.'),
+ Q('Dalam QS at-Taubah: 3, membaca وَرَسُولِهِ (kasrah) alih-alih وَرَسُولُهُ (dhammah) berakibat…','أَنَّ اللَّهَ بَرِيءٌ مِنَ الْمُشْرِكِينَ وَرَسُولُهُ',['Maknanya rusak: seolah Allah juga berlepas diri dari Rasul-Nya','Tidak berpengaruh apa pun pada makna','Hanya mengubah keindahan bacaan','Membuat kalimat menjadi kalimat tanya'],'Satu harakat akhir dapat mengubah makna secara fatal. Inilah alasan pentingnya nahwu.')
+ ],
+ write:[
+ {p:'Jelaskan dengan bahasamu sendiri (2–4 kalimat): mengapa calon guru PAI perlu belajar nahwu?',free:true,ar:false,model:'Karena nahwu adalah ilmu alat untuk membaca dan memahami Al-Qur\'an, Hadits, dan kitab keislaman dengan benar. Kesalahan harakat akhir bisa mengubah makna (contoh QS at-Taubah: 3). Guru PAI akan mengajarkan teks-teks itu, sehingga harus mampu membacanya dengan tepat.'},
+ {p:'Sebutkan 2 poin latar belakang lahirnya ilmu nahwu.',free:true,ar:false,model:'(1) Meluasnya Islam ke wilayah non-Arab sehingga muncul lahn (kesalahan berbahasa); (2) kebutuhan menjaga bacaan Al-Qur\'an dan pemahaman Hadits dari kesalahan.'}
+ ]},
+
+{id:'p2',no:2,arN:'الْكَلَامُ: الِاسْمُ وَالْفِعْلُ وَالْحَرْفُ',t:'Bab al-Kalam (1): Isim, Fi\'il, Harf & Tanda-tandanya',sub:'Sub-CPMK2',
+ goal:'Mahasiswa mampu mengklasifikasikan minimal 8 dari 10 kata pada teks pendek ke dalam isim/fi\'il/harf beserta tandanya.',
+ materi:()=>`
+<h3>Definisi Kalam</h3>
+${MATAN('الْكَلَامُ هُوَ اللَّفْظُ الْمُرَكَّبُ الْمُفِيدُ بِالْوَضْعِ','Kalam adalah lafal yang tersusun (minimal dua kata), memberi faedah (makna sempurna), dan disengaja berbahasa Arab.')}
+<p>Empat syarat kalam: <b>lafzh</b> (berupa suara berhuruf), <b>murakkab</b> (tersusun), <b>mufid</b> (berfaedah, pendengar bisa diam dengan puas), dan <b>bil-wadh'</b> (dengan bahasa Arab/disengaja).</p>
+${EX('اَلْعِلْمُ نُورٌ','Ilmu itu cahaya: ini kalam (tersusun dan berfaedah sempurna)')}
+${EX('إِنْ جَاءَ زَيْدٌ','Jika Zaid datang…: belum kalam, karena maknanya menggantung')}
+<h3>Kalimah Ada Tiga</h3>
+${MATAN('وَأَقْسَامُهُ ثَلَاثَةٌ: اسْمٌ، وَفِعْلٌ، وَحَرْفٌ جَاءَ لِمَعْنًى','Bagian-bagiannya ada tiga: isim, fi\'il, dan huruf yang datang untuk suatu makna.')}
+<div class="scroll"><table class="t"><tr><th>Jenis</th><th>Pengertian sederhana</th><th>Contoh</th></tr>
+<tr><td><b>Isim</b></td><td>Kata yang menunjukkan makna pada dirinya dan tidak terikat waktu (nama orang, benda, tempat, sifat).</td><td>${AR('مُحَمَّدٌ، كِتَابٌ، مَسْجِدٌ')}</td></tr>
+<tr><td><b>Fi'il</b></td><td>Kata kerja yang terikat dengan waktu (lampau, sekarang/akan datang, perintah).</td><td>${AR('كَتَبَ، يَكْتُبُ، اُكْتُبْ')}</td></tr>
+<tr><td><b>Harf</b></td><td>Kata yang maknanya baru sempurna jika digabung dengan kata lain.</td><td>${AR('فِي، مِنْ، إِلَى، هَلْ، لَمْ')}</td></tr></table></div>
+<h3>Tanda-tanda Isim</h3>
+${MATAN('فَالِاسْمُ يُعْرَفُ بِالْخَفْضِ وَالتَّنْوِينِ وَدُخُولِ الْأَلِفِ وَاللَّامِ وَحُرُوفِ الْخَفْضِ','Isim dikenali dengan: khafdh (kasrah karena i\'rab), tanwin, kemasukan alif-lam, dan huruf-huruf khafdh (huruf jar).')}
+${EX('بِسْمِ اللَّهِ','اسْمِ dimasuki huruf khafdh بِ dan berharakat khafdh → isim')}
+${EX('كِتَابٌ','Bertanwin → isim')}
+${EX('اَلْمَسْجِدُ','Dimasuki alif-lam → isim')}
+${EX('فِي الْبَيْتِ','بَيْت dimasuki huruf jar فِي dan alif-lam → isim')}
+<p>Huruf khafdh (jar) yang sering muncul: ${AR('مِنْ، إِلَى، عَنْ، عَلَى، فِي، رُبَّ، الْبَاءُ، الْكَافُ، اللَّامُ')}, serta huruf qasam ${AR('الْوَاوُ، الْبَاءُ، التَّاءُ')}.</p>
+<h3>Tanda-tanda Fi'il</h3>
+${MATAN('وَالْفِعْلُ يُعْرَفُ بِقَدْ وَالسِّينِ وَسَوْفَ وَتَاءِ التَّأْنِيثِ السَّاكِنَةِ','Fi\'il dikenali dengan: قَدْ, sin, سَوْفَ, dan ta\' ta\'nits yang sukun.')}
+${EX('قَدْ أَفْلَحَ الْمُؤْمِنُونَ','قَدْ → أَفْلَحَ adalah fi\'il (QS al-Mu\'minun: 1)')}
+${EX('سَيَقُولُ','Sin → fi\'il')}
+${EX('سَوْفَ تَعْلَمُونَ','سَوْفَ → fi\'il (QS at-Takatsur: 3)')}
+${EX('قَامَتْ','Ta\' ta\'nits sukun → fi\'il')}
+<h3>Tanda Harf</h3>
+${MATAN('وَالْحَرْفُ مَا لَا يَصْلُحُ مَعَهُ دَلِيلُ الِاسْمِ وَلَا دَلِيلُ الْفِعْلِ','Harf adalah kata yang tidak menerima tanda isim maupun tanda fi\'il.')}
+<div class="note"><b>Tips Ning Tika:</b> untuk mengenali jenis kata, coba "tempelkan" tandanya. Bisa diberi <span class="ar">ال</span> atau tanwin? → isim. Bisa didahului <span class="ar">قَدْ</span> atau <span class="ar">سَوْفَ</span>? → fi'il. Tidak bisa keduanya? → harf.</div>
+<div class="note pink"><b>Hati-hati:</b> ta' ta'nits pada fi'il itu <b>sukun</b> (${AR('قَامَتْ')}), sedangkan ta' marbuthah pada isim berbentuk <span class="ar">ة</span> (${AR('مَدْرَسَةٌ')}). Dalam ${AR('قَدْ قَامَتِ الصَّلَاةُ')}, ta' pada ${AR('قَامَتِ')} dibaca kasrah hanya untuk menghindari bertemunya dua sukun; aslinya sukun.</div>`,
+ quiz:[
+ Q('Definisi kalam menurut Matan al-Ajurumiyyah adalah…','',['اللَّفْظُ الْمُرَكَّبُ الْمُفِيدُ بِالْوَضْعِ','اللَّفْظُ الْمُفْرَدُ','مَا دَلَّ عَلَى مَعْنًى فِي غَيْرِهِ','مَا اقْتَرَنَ بِزَمَانٍ'],'Kalam = lafal yang tersusun, berfaedah, dan disengaja (berbahasa Arab).'),
+ Q('Manakah yang BUKAN tanda isim?','',['Ta\' ta\'nits sakinah','Tanwin','Alif-lam','Huruf khafdh'],'Ta\' ta\'nits sakinah adalah tanda fi\'il, contoh قَامَتْ.'),
+ Q('Kata yang bergaris bawah: سَوْفَ تَعْلَمُونَ. Kata تَعْلَمُونَ termasuk…','سَوْفَ تَعْلَمُونَ',['Fi\'il, karena didahului سَوْفَ','Isim, karena berakhiran nun','Harf, karena tidak bertanwin','Isim, karena diawali ta\''],'سَوْفَ termasuk tanda fi\'il.'),
+ Q('Kata الْمَسْجِدُ termasuk…','اَلْمَسْجِدُ',['Isim, karena kemasukan alif-lam','Fi\'il, karena berharakat dhammah','Harf, karena tidak bertanwin','Fi\'il, karena diawali mim'],'Alif-lam (ال) adalah salah satu tanda isim.'),
+ Q('Kata فِي termasuk…','فِي',['Harf','Isim','Fi\'il','Isim fi\'il'],'فِي tidak menerima tanda isim ataupun fi\'il, dan maknanya baru jelas bila disambung (فِي الْبَيْتِ).'),
+ Q('Dalam بِسْمِ اللَّهِ, kata اسْمِ adalah isim karena…','بِسْمِ اللَّهِ',['Dimasuki huruf khafdh (bā\') dan berharakat khafdh','Diawali hamzah','Bertanwin','Didahului قَدْ'],'Ba\' adalah huruf khafdh. Hanya isim yang bisa dimasukinya.'),
+ Q('Kata قَامَتْ termasuk fi\'il karena…','قَامَتْ',['Berakhiran ta\' ta\'nits yang sukun','Bertanwin','Dimasuki alif-lam','Diawali huruf qaf'],'Ta\' ta\'nits sakinah adalah tanda khas fi\'il madhi.'),
+ Q('Kata أَفْلَحَ dalam قَدْ أَفْلَحَ الْمُؤْمِنُونَ termasuk…','قَدْ أَفْلَحَ الْمُؤْمِنُونَ',['Fi\'il, karena didahului قَدْ','Isim, karena diawali hamzah','Harf','Isim, karena diikuti isim'],'قَدْ termasuk tanda fi\'il.'),
+ Q('Kata كِتَابٌ termasuk…','كِتَابٌ',['Isim, karena bertanwin','Fi\'il, karena berharakat dhammah','Harf','Fi\'il, karena bermakna kerja'],'Tanwin hanya masuk pada isim.'),
+ Q('Kata لَمْ termasuk…','لَمْ',['Harf','Isim','Fi\'il','Isim isyarah'],'لَمْ adalah harf jazm. Ia tidak menerima tanda isim maupun fi\'il.'),
+ Q('Kata سَيَذْهَبُ termasuk fi\'il karena…','سَيَذْهَبُ',['Diawali sin (tanda fi\'il mustaqbal)','Berharakat dhammah','Bertanwin','Diawali huruf ya\''],'Sin (سَـ) menunjukkan masa depan dan merupakan tanda fi\'il.'),
+ Q('Ungkapan إِنْ جَاءَ زَيْدٌ belum disebut kalam karena…','إِنْ جَاءَ زَيْدٌ',['Belum mufid (maknanya masih menggantung)','Tidak tersusun','Bukan bahasa Arab','Tidak ada isimnya'],'Pendengar masih menunggu kelanjutan ("jika Zaid datang… lalu apa?"), jadi belum berfaedah sempurna.')
+ ],
+ write:[
+ {p:'Klasifikasikan setiap kata dalam kalimat berikut (isim/fi\'il/harf) beserta tandanya: ذَهَبَ الطَّالِبُ إِلَى الْمَسْجِدِ',ar:false,free:true,model:'ذَهَبَ = fi\'il (bisa menerima قَدْ/ta\' ta\'nits: ذَهَبَتْ); الطَّالِبُ = isim (alif-lam); إِلَى = harf (huruf jar); الْمَسْجِدِ = isim (alif-lam, dimasuki huruf jar, berharakat khafdh).'},
+ {p:'Tulis satu kalimat Arab pendek yang mengandung isim, fi\'il, dan harf sekaligus.',ar:true,free:true,model:'جَلَسَ مُحَمَّدٌ فِي الْفَصْلِ (Muhammad duduk di kelas)'}
+ ]},
+
+{id:'p3',no:3,arN:'الْمَاضِي وَالْمُضَارِعُ وَالْأَمْرُ',t:'Bab al-Kalam (2): Fi\'il Madhi, Mudhari\', Amr',sub:'Sub-CPMK2',
+ goal:'Mahasiswa mampu mengonversi kalimat fi\'il madhi ↔ mudhari\' dengan wazan yang tepat (minimal 4 dari 5 soal) dan membacakannya dengan lafal yang benar.',
+ materi:()=>`
+${MATAN('الْأَفْعَالُ ثَلَاثَةٌ: مَاضٍ، وَمُضَارِعٌ، وَأَمْرٌ، نَحْوُ: ضَرَبَ، وَيَضْرِبُ، وَاضْرِبْ','Fi\'il itu ada tiga: madhi, mudhari\', dan amr. Contoh: ضَرَبَ، يَضْرِبُ، اِضْرِبْ.')}
+<div class="scroll"><table class="t"><tr><th>Jenis</th><th>Makna waktu</th><th>Hukum akhir (Ajurumiyyah)</th><th>Contoh</th></tr>
+<tr><td><b>Madhi</b></td><td>Lampau</td><td>Selalu <b>fathah</b> di akhir (mabni)</td><td>${AR('كَتَبَ')} = telah menulis</td></tr>
+<tr><td><b>Mudhari'</b></td><td>Sedang/akan</td><td><b>Marfu'</b> selama tidak dimasuki nashib atau jazim</td><td>${AR('يَكْتُبُ')} = sedang/akan menulis</td></tr>
+<tr><td><b>Amr</b></td><td>Perintah</td><td>Selalu <b>majzum</b> (sukun)</td><td>${AR('اُكْتُبْ')} = tulislah!</td></tr></table></div>
+${MATAN('فَالْمَاضِي مَفْتُوحُ الْآخِرِ أَبَدًا، وَالْأَمْرُ مَجْزُومٌ أَبَدًا، وَالْمُضَارِعُ مَا كَانَ فِي أَوَّلِهِ إِحْدَى الزَّوَائِدِ الْأَرْبَعِ الَّتِي يَجْمَعُهَا قَوْلُكَ: أَنَيْتُ، وَهُوَ مَرْفُوعٌ أَبَدًا حَتَّى يَدْخُلَ عَلَيْهِ نَاصِبٌ أَوْ جَازِمٌ','Madhi selalu berakhir fathah; amr selalu majzum; mudhari\' diawali salah satu huruf tambahan yang terkumpul dalam kata أَنَيْتُ, dan ia selalu marfu\' sampai dimasuki nashib atau jazim.')}
+<h3>Huruf Mudhara'ah: أَنَيْتُ</h3>
+${EX('أَكْتُبُ','أ → saya menulis')}
+${EX('نَكْتُبُ','ن → kami menulis')}
+${EX('يَكْتُبُ','ي → dia (lk) menulis')}
+${EX('تَكْتُبُ','ت → kamu (lk) / dia (pr) menulis')}
+<div class="note blue"><b>Catatan khilaf:</b> Ajurumiyyah (mengikuti pandangan Kufah) menyebut amr "majzum". Ulama Bashrah menyebut amr <i>mabni</i> atas tanda jazm mudhari'-nya. Hasil bacaannya sama: akhirnya sukun (atau terbuang hurufnya).</div>
+<h3>Wazan Tsulatsi (Al-Amtsilah at-Tashrifiyyah)</h3>
+<div class="scroll"><table class="t"><tr><th>Bab</th><th>Madhi – Mudhari'</th><th>Contoh</th><th>Amr</th></tr>
+<tr><td>1</td><td>${AR('فَعَلَ – يَفْعُلُ')}</td><td>${AR('نَصَرَ – يَنْصُرُ')}</td><td>${AR('اُنْصُرْ')}</td></tr>
+<tr><td>2</td><td>${AR('فَعَلَ – يَفْعِلُ')}</td><td>${AR('ضَرَبَ – يَضْرِبُ')}</td><td>${AR('اِضْرِبْ')}</td></tr>
+<tr><td>3</td><td>${AR('فَعَلَ – يَفْعَلُ')}</td><td>${AR('فَتَحَ – يَفْتَحُ')}</td><td>${AR('اِفْتَحْ')}</td></tr>
+<tr><td>4</td><td>${AR('فَعِلَ – يَفْعَلُ')}</td><td>${AR('عَلِمَ – يَعْلَمُ')}</td><td>${AR('اِعْلَمْ')}</td></tr>
+<tr><td>5</td><td>${AR('فَعُلَ – يَفْعُلُ')}</td><td>${AR('حَسُنَ – يَحْسُنُ')}</td><td>${AR('اُحْسُنْ')}</td></tr>
+<tr><td>6</td><td>${AR('فَعِلَ – يَفْعِلُ')}</td><td>${AR('حَسِبَ – يَحْسِبُ')}</td><td>${AR('اِحْسِبْ')}</td></tr></table></div>
+<h3>Cara Membentuk Fi'il Amr</h3>
+<ol><li>Ambil fi'il mudhari': ${AR('تَكْتُبُ')}</li><li>Buang huruf mudhara'ah: ${AR('كْتُبُ')}</li><li>Sukunkan akhirnya: ${AR('كْتُبْ')}</li><li>Karena diawali sukun, tambahkan hamzah washal: dhammah bila 'ain fi'ilnya dhammah (${AR('اُكْتُبْ')}), kasrah bila fathah/kasrah (${AR('اِفْتَحْ، اِجْلِسْ')}).</li></ol>
+<h3>Latihan Lisan: Konversi Kalimat</h3>
+${EX('ذَهَبَ أَحْمَدُ إِلَى الْمَدْرَسَةِ','Ahmad telah pergi ke sekolah (madhi)')}
+${EX('يَذْهَبُ أَحْمَدُ إِلَى الْمَدْرَسَةِ','Ahmad sedang/akan pergi ke sekolah (mudhari\')')}
+${EX('اِذْهَبْ يَا أَحْمَدُ إِلَى الْمَدْرَسَةِ','Pergilah, wahai Ahmad, ke sekolah! (amr)')}`,
+ quiz:[
+ Q('Menurut Ajurumiyyah, akhir fi\'il madhi selalu…','',['Fathah (مَفْتُوحُ الْآخِرِ أَبَدًا)','Dhammah','Sukun','Kasrah'],'"فَالْمَاضِي مَفْتُوحُ الْآخِرِ أَبَدًا".'),
+ Q('Huruf mudhara\'ah dikumpulkan dalam kata…','',['أَنَيْتُ','سَأَلْتُمُونِيهَا','أَهْلًا','هَلْ'],'أَنَيْتُ = hamzah, nun, ya\', ta\'.'),
+ Q('Fi\'il mudhari\' dari نَصَرَ adalah…','نَصَرَ',['يَنْصُرُ','يَنْصِرُ','يَنْصَرُ','نَاصِرٌ'],'نَصَرَ ikut bab 1 (فَعَلَ – يَفْعُلُ).'),
+ Q('Fi\'il mudhari\' dari فَتَحَ adalah…','فَتَحَ',['يَفْتَحُ','يَفْتُحُ','يَفْتِحُ','مَفْتُوحٌ'],'فَتَحَ ikut bab 3 (فَعَلَ – يَفْعَلُ).'),
+ Q('Fi\'il mudhari\' dari جَلَسَ adalah…','جَلَسَ',['يَجْلِسُ','يَجْلُسُ','يَجْلَسُ','جَالِسٌ'],'جَلَسَ ikut bab 2 (فَعَلَ – يَفْعِلُ).'),
+ Q('Fi\'il mudhari\' dari عَلِمَ adalah…','عَلِمَ',['يَعْلَمُ','يَعْلُمُ','يَعْلِمُ','عَالِمٌ'],'عَلِمَ ikut bab 4 (فَعِلَ – يَفْعَلُ).'),
+ Q('Fi\'il amr dari يَكْتُبُ adalah…','يَكْتُبُ',['اُكْتُبْ','اِكْتِبْ','كَتَبَ','اِكْتَبْ'],'\'Ain fi\'il يَكْتُبُ berharakat dhammah, maka hamzah washalnya dhammah: اُكْتُبْ.'),
+ Q('Fi\'il amr dari يَجْلِسُ adalah…','يَجْلِسُ',['اِجْلِسْ','اُجْلُسْ','جَلَسَ','اِجْلَسْ'],'\'Ain fi\'ilnya kasrah, maka hamzah washalnya kasrah: اِجْلِسْ.'),
+ Q('Kata نَكْتُبُ termasuk fi\'il…','نَكْتُبُ',['Mudhari\' (diawali nun mudhara\'ah)','Madhi','Amr','Bukan fi\'il'],'Nun adalah salah satu huruf أَنَيْتُ; artinya "kami menulis".'),
+ Q('Bentuk mudhari\' yang tepat dari kalimat ذَهَبَ أَحْمَدُ إِلَى الْمَسْجِدِ adalah…','ذَهَبَ أَحْمَدُ إِلَى الْمَسْجِدِ',['يَذْهَبُ أَحْمَدُ إِلَى الْمَسْجِدِ','يَذْهُبُ أَحْمَدُ إِلَى الْمَسْجِدِ','اِذْهَبْ أَحْمَدُ إِلَى الْمَسْجِدِ','ذَاهِبٌ أَحْمَدُ إِلَى الْمَسْجِدِ'],'ذَهَبَ ikut bab 3 (فَعَلَ – يَفْعَلُ), jadi يَذْهَبُ.'),
+ Q('Kata اُدْرُسْ termasuk fi\'il…','اُدْرُسْ',['Amr','Madhi','Mudhari\'','Bukan fi\'il'],'Diawali hamzah washal dan berakhir sukun: bentuk perintah, "belajarlah!".'),
+ Q('Mengapa يَكْتُبُ berharakat dhammah di akhir?','يَكْتُبُ',['Karena mudhari\' marfu\' selama tidak dimasuki nashib atau jazim','Karena fi\'il madhi','Karena didahului huruf jar','Karena isim mufrad'],'"وَهُوَ مَرْفُوعٌ أَبَدًا حَتَّى يَدْخُلَ عَلَيْهِ نَاصِبٌ أَوْ جَازِمٌ".')
+ ],
+ write:[
+ {p:'Ubah ke bentuk mudhari\': كَتَبَ الطَّالِبُ الدَّرْسَ',ar:true,key:['يكتب الطالب الدرس'],model:'يَكْتُبُ الطَّالِبُ الدَّرْسَ'},
+ {p:'Ubah ke bentuk mudhari\': جَلَسَ الْأُسْتَاذُ عَلَى الْكُرْسِيِّ',ar:true,key:['يجلس الاستاذ على الكرسي'],model:'يَجْلِسُ الْأُسْتَاذُ عَلَى الْكُرْسِيِّ'},
+ {p:'Ubah ke bentuk madhi: يَفْتَحُ مُحَمَّدٌ الْبَابَ',ar:true,key:['فتح محمد الباب'],model:'فَتَحَ مُحَمَّدٌ الْبَابَ'},
+ {p:'Tulis fi\'il amr dari يَنْصُرُ',ar:true,key:['انصر'],model:'اُنْصُرْ'},
+ {p:'Tulis fi\'il amr dari يَعْلَمُ',ar:true,key:['اعلم'],model:'اِعْلَمْ'}
+ ]},
+
+{id:'p4',no:4,arN:'الْإِعْرَابُ وَالْمُذَكَّرُ وَالْمُؤَنَّثُ',t:'Bab al-I\'rab: Rafa\', Nashab, Khafdh, Jazm; Mudzakkar & Muannats',sub:'Sub-CPMK3',
+ goal:'Mahasiswa mampu menjelaskan 4 jenis i\'rab dan menentukan mudzakkar/muannats pada minimal 8 dari 10 kosakata.',
+ materi:()=>`
+<h3>Definisi I'rab</h3>
+${MATAN('الْإِعْرَابُ هُوَ تَغْيِيرُ أَوَاخِرِ الْكَلِمِ لِاخْتِلَافِ الْعَوَامِلِ الدَّاخِلَةِ عَلَيْهَا لَفْظًا أَوْ تَقْدِيرًا','I\'rab adalah perubahan akhir kata karena perbedaan \'amil (faktor penyebab) yang masuk padanya, baik perubahan itu tampak (lafzhan) maupun dikira-kirakan (taqdiran).')}
+<p><b>'Amil</b> adalah "penyebab" yang membuat akhir kata berubah, misalnya fi'il, huruf jar, atau huruf nashab/jazm.</p>
+<h3>Empat Jenis I'rab</h3>
+${MATAN('وَأَقْسَامُهُ أَرْبَعَةٌ: رَفْعٌ، وَنَصْبٌ، وَخَفْضٌ، وَجَزْمٌ. فَلِلْأَسْمَاءِ مِنْ ذَلِكَ الرَّفْعُ وَالنَّصْبُ وَالْخَفْضُ وَلَا جَزْمَ فِيهَا، وَلِلْأَفْعَالِ مِنْ ذَلِكَ الرَّفْعُ وَالنَّصْبُ وَالْجَزْمُ وَلَا خَفْضَ فِيهَا','Bagiannya empat: rafa\', nashab, khafdh, dan jazm. Isim menerima rafa\', nashab, khafdh (tidak jazm). Fi\'il menerima rafa\', nashab, jazm (tidak khafdh).')}
+<div class="scroll"><table class="t"><tr><th>I'rab</th><th>Pada Isim</th><th>Pada Fi'il Mudhari'</th></tr>
+<tr><td><b>Rafa'</b></td><td>${AR('جَاءَ زَيْدٌ')}</td><td>${AR('يَضْرِبُ')}</td></tr>
+<tr><td><b>Nashab</b></td><td>${AR('رَأَيْتُ زَيْدًا')}</td><td>${AR('لَنْ يَضْرِبَ')}</td></tr>
+<tr><td><b>Khafdh/Jar</b></td><td>${AR('مَرَرْتُ بِزَيْدٍ')}</td><td>—</td></tr>
+<tr><td><b>Jazm</b></td><td>—</td><td>${AR('لَمْ يَضْرِبْ')}</td></tr></table></div>
+<div class="note"><b>Mudah diingat:</b> khafdh khusus isim, jazm khusus fi'il. Rafa' dan nashab dimiliki keduanya.</div>
+<p><b>Mu'rab vs mabni.</b> Kata yang akhirnya berubah disebut <i>mu'rab</i> (${AR('زَيْدٌ / زَيْدًا / زَيْدٍ')}). Yang akhirnya tetap disebut <i>mabni</i>, misalnya fi'il madhi, harf, dan banyak isim seperti ${AR('هٰذَا، الَّذِي، هُوَ')}.</p>
+<h3>Isim Mudzakkar &amp; Muannats</h3>
+<p><b>Mudzakkar</b> = berjenis laki-laki. <b>Muannats</b> = berjenis perempuan. Tanda muannats lafzhi ada tiga:</p>
+${EX('مُدَرِّسَةٌ','Ta\' marbuthah (ة): guru perempuan')}
+${EX('كُبْرَى','Alif maqshurah (ى): yang paling besar (pr)')}
+${EX('صَحْرَاءُ','Alif mamdudah (اء): padang pasir')}
+<p>Ada juga muannats <b>tanpa tanda</b> (muannats ma'nawi/sima'i), yang dihafal dari penggunaan orang Arab:</p>
+${EX('أُمٌّ، بِنْتٌ، مَرْيَمُ، زَيْنَبُ','Perempuan secara makna')}
+${EX('شَمْسٌ، أَرْضٌ، نَارٌ، دَارٌ','Muannats sima\'i (dihafal)')}
+<div class="note pink"><b>Kasus unik:</b> ${AR('طَلْحَةُ')} dan ${AR('حَمْزَةُ')} punya ta' marbuthah tetapi nama laki-laki, sehingga disebut <i>muannats lafzhi</i> saja. Kalimatnya tetap memakai bentuk mudzakkar: ${AR('جَاءَ طَلْحَةُ')}.</div>
+<h3>Mengubah Mudzakkar → Muannats</h3>
+${EX('مُسْلِمٌ ← مُسْلِمَةٌ','Muslim → Muslimah')}
+${EX('طَالِبٌ ← طَالِبَةٌ','Mahasiswa → mahasiswi')}
+${EX('هُوَ مُجْتَهِدٌ ← هِيَ مُجْتَهِدَةٌ','Dia (lk) rajin → Dia (pr) rajin')}`,
+ quiz:[
+ Q('Definisi i\'rab yang tepat adalah…','',['Perubahan akhir kata karena perbedaan \'amil yang masuk padanya','Perubahan bentuk kata dasar menjadi kata turunan','Tetapnya akhir kata dalam satu keadaan','Cara membaca huruf dengan makhraj yang benar'],'"تَغْيِيرُ أَوَاخِرِ الْكَلِمِ لِاخْتِلَافِ الْعَوَامِلِ…".'),
+ Q('I\'rab yang KHUSUS dimiliki isim adalah…','',['Khafdh','Jazm','Rafa\'','Nashab'],'"…وَلِلْأَسْمَاءِ… الْخَفْضُ وَلَا جَزْمَ فِيهَا".'),
+ Q('I\'rab yang KHUSUS dimiliki fi\'il adalah…','',['Jazm','Khafdh','Rafa\'','Nashab'],'Fi\'il menerima jazm, tetapi tidak menerima khafdh.'),
+ Q('Kata زَيْدًا dalam رَأَيْتُ زَيْدًا ber-i\'rab…','رَأَيْتُ زَيْدًا',['Nashab','Rafa\'','Khafdh','Jazm'],'Ia menjadi objek (maf\'ul bih) sehingga dinashabkan; tandanya fathah (tanwin fathah).'),
+ Q('Kata زَيْدٍ dalam مَرَرْتُ بِزَيْدٍ ber-i\'rab…','مَرَرْتُ بِزَيْدٍ',['Khafdh (jar)','Rafa\'','Nashab','Jazm'],'Dimasuki huruf jar بِ sehingga dikhafdhkan; tandanya kasrah.'),
+ Q('Kata يَضْرِبْ dalam لَمْ يَضْرِبْ ber-i\'rab…','لَمْ يَضْرِبْ',['Jazm','Rafa\'','Nashab','Khafdh'],'لَمْ adalah huruf jazm; tandanya sukun.'),
+ Q('Manakah yang BUKAN tanda muannats lafzhi?','',['Ya\' nisbah (ـِيٌّ)','Ta\' marbuthah (ة)','Alif maqshurah (ى)','Alif mamdudah (اء)'],'Ya\' nisbah (seperti عَرَبِيٌّ) bukan tanda muannats.'),
+ Q('Kata شَمْسٌ termasuk…','شَمْسٌ',['Muannats sima\'i (tanpa tanda)','Mudzakkar','Muannats dengan ta\' marbuthah','Muannats dengan alif maqshurah'],'شَمْسٌ dihukumi muannats berdasarkan penggunaan orang Arab: الشَّمْسُ طَالِعَةٌ.'),
+ Q('Kata صَحْرَاءُ termasuk muannats karena…','صَحْرَاءُ',['Berakhiran alif mamdudah','Berakhiran ta\' marbuthah','Bermakna perempuan','Bertanwin'],'اءُ di akhir adalah alif mamdudah, salah satu tanda muannats.'),
+ Q('Bentuk muannats dari مُسْلِمٌ adalah…','مُسْلِمٌ',['مُسْلِمَةٌ','مُسْلِمُونَ','مُسْلِمَانِ','مَسْلَمَةٌ'],'Cukup tambahkan ta\' marbuthah: مُسْلِمَةٌ.'),
+ Q('Kata طَلْحَةُ (nama sahabat laki-laki) termasuk…','طَلْحَةُ',['Muannats lafzhi (bentuknya muannats, maknanya laki-laki)','Muannats hakiki','Mudzakkar majazi','Jamak taksir'],'Ada ta\' marbuthah, tetapi orangnya laki-laki. Karena itu kalimatnya tetap جَاءَ طَلْحَةُ.'),
+ Q('Kata yang termasuk MUDZAKKAR adalah…','',['قَلَمٌ','سَيَّارَةٌ','أَرْضٌ','كُبْرَى'],'قَلَمٌ tidak memiliki tanda muannats dan tidak termasuk muannats sima\'i.')
+ ],
+ write:[
+ {p:'Ubah ke bentuk muannats: هُوَ طَالِبٌ مُجْتَهِدٌ',ar:true,key:['هي طالبة مجتهدة'],model:'هِيَ طَالِبَةٌ مُجْتَهِدَةٌ'},
+ {p:'Ubah ke bentuk muannats: هٰذَا مُدَرِّسٌ',ar:true,key:['هذه مدرسة'],model:'هٰذِهِ مُدَرِّسَةٌ'},
+ {p:'Tentukan i\'rab kata yang ditanyakan: ذَهَبَ الطَّالِبُ إِلَى الْمَكْتَبَةِ. Apa i\'rab الطَّالِبُ dan الْمَكْتَبَةِ?',ar:false,free:true,model:'الطَّالِبُ = rafa\' (fa\'il), tanda dhammah; الْمَكْتَبَةِ = khafdh/jar (dimasuki huruf jar إِلَى), tanda kasrah.'}
+ ]},
+
+{id:'p5',no:5,arN:'عَلَامَاتُ الْإِعْرَابِ',t:'\'Alamat al-I\'rab; Ma\'rifat-Nakirah, Isim Isyarah, Isim Maushul',sub:'Sub-CPMK3',
+ goal:'Mahasiswa mampu menentukan alamat i\'rab pada berbagai bentuk isim dan fi\'il mudhari\' (ketepatan ≥ 80%) dan menyusun kalimat dengan isim isyarah/maushul.',
+ materi:()=>`
+<h3>Tanda-tanda I'rab</h3>
+<p>Setiap i'rab punya <b>tanda asli</b> (harakat) dan <b>tanda pengganti</b> (huruf atau pembuangan).</p>
+<div class="scroll"><table class="t"><tr><th>I'rab</th><th>Tanda</th><th>Dipakai pada</th><th>Contoh</th></tr>
+<tr><td rowspan="4"><b>Rafa'</b></td><td>Dhammah</td><td>Isim mufrad, jamak taksir, jamak muannats salim, fi'il mudhari' (akhirnya tidak bersambung apa-apa)</td><td>${AR('جَاءَ الطَّالِبُ / الطُّلَّابُ / الْمُسْلِمَاتُ')}</td></tr>
+<tr><td>Wawu</td><td>Jamak mudzakkar salim; asma'ul khamsah</td><td>${AR('جَاءَ الْمُسْلِمُونَ، جَاءَ أَبُوكَ')}</td></tr>
+<tr><td>Alif</td><td>Tatsniyah (isim dual)</td><td>${AR('جَاءَ الطَّالِبَانِ')}</td></tr>
+<tr><td>Nun</td><td>Af'al khamsah</td><td>${AR('يَكْتُبُونَ، تَكْتُبِينَ')}</td></tr>
+<tr><td rowspan="5"><b>Nashab</b></td><td>Fathah</td><td>Isim mufrad, jamak taksir, mudhari' (dimasuki nashib)</td><td>${AR('رَأَيْتُ الطَّالِبَ، لَنْ يَكْتُبَ')}</td></tr>
+<tr><td>Alif</td><td>Asma'ul khamsah</td><td>${AR('رَأَيْتُ أَبَاكَ')}</td></tr>
+<tr><td>Kasrah</td><td>Jamak muannats salim</td><td>${AR('رَأَيْتُ الْمُسْلِمَاتِ')}</td></tr>
+<tr><td>Ya'</td><td>Tatsniyah &amp; jamak mudzakkar salim</td><td>${AR('رَأَيْتُ الطَّالِبَيْنِ، الْمُسْلِمِينَ')}</td></tr>
+<tr><td>Hadzf nun</td><td>Af'al khamsah</td><td>${AR('لَنْ يَكْتُبُوا')}</td></tr>
+<tr><td rowspan="3"><b>Khafdh</b></td><td>Kasrah</td><td>Isim mufrad/jamak taksir yang munsharif, jamak muannats salim</td><td>${AR('مَرَرْتُ بِالطَّالِبِ')}</td></tr>
+<tr><td>Ya'</td><td>Asma'ul khamsah, tatsniyah, jamak mudzakkar salim</td><td>${AR('مَرَرْتُ بِأَبِيكَ، بِالْمُسْلِمِينَ')}</td></tr>
+<tr><td>Fathah</td><td>Isim ghairu munsharif</td><td>${AR('مَرَرْتُ بِأَحْمَدَ')}</td></tr>
+<tr><td rowspan="2"><b>Jazm</b></td><td>Sukun</td><td>Mudhari' shahih akhir</td><td>${AR('لَمْ يَكْتُبْ')}</td></tr>
+<tr><td>Hadzf (buang)</td><td>Mudhari' mu'tal akhir &amp; af'al khamsah</td><td>${AR('لَمْ يَدْعُ، لَمْ يَكْتُبُوا')}</td></tr>
+</table></div>
+<div class="note blue"><b>Asma'ul khamsah</b> (lima isim): ${AR('أَبُوكَ، أَخُوكَ، حَمُوكِ، فُوكَ، ذُو مَالٍ')}. Rafa' dengan wawu, nashab dengan alif, khafdh dengan ya', jika di-idhafah-kan selain kepada ya' mutakallim.<br><b>Af'al khamsah</b>: ${AR('يَفْعَلَانِ، تَفْعَلَانِ، يَفْعَلُونَ، تَفْعَلُونَ، تَفْعَلِينَ')}.</div>
+<h3>Ma'rifat &amp; Nakirah</h3>
+${MATAN('وَالْمَعْرِفَةُ خَمْسَةُ أَشْيَاءَ: الِاسْمُ الْمُضْمَرُ نَحْوُ أَنَا وَأَنْتَ، وَالِاسْمُ الْعَلَمُ نَحْوُ زَيْدٍ وَمَكَّةَ، وَالِاسْمُ الْمُبْهَمُ نَحْوُ هٰذَا وَهٰذِهِ وَهٰؤُلَاءِ، وَالِاسْمُ الَّذِي فِيهِ الْأَلِفُ وَاللَّامُ نَحْوُ الرَّجُلِ وَالْغُلَامِ، وَمَا أُضِيفَ إِلَى وَاحِدٍ مِنْ هٰذِهِ الْأَرْبَعَةِ','Ma\'rifat (kata yang sudah tertentu) ada lima: dhamir, nama (\'alam), isim mubham (isyarah dan maushul), isim ber-alif-lam, dan isim yang di-idhafah-kan kepada salah satunya.')}
+${MATAN('وَالنَّكِرَةُ كُلُّ اسْمٍ شَائِعٍ فِي جِنْسِهِ لَا يَخْتَصُّ بِهِ وَاحِدٌ دُونَ آخَرَ، وَتَقْرِيبُهُ: كُلُّ مَا صَلَحَ دُخُولُ الْأَلِفِ وَاللَّامِ عَلَيْهِ','Nakirah adalah isim yang umum dalam jenisnya, tidak khusus pada satu individu. Cara mudahnya: setiap isim yang bisa diberi alif-lam.')}
+${EX('كِتَابٌ ← اَلْكِتَابُ','Sebuah buku (nakirah) → buku itu (ma\'rifat)')}
+${EX('كِتَابُ مُحَمَّدٍ','Buku Muhammad: ma\'rifat karena di-idhafah-kan kepada \'alam')}
+<h3>Isim Isyarah (Kata Tunjuk)</h3>
+<div class="scroll"><table class="t"><tr><th></th><th>Dekat</th><th>Jauh</th></tr>
+<tr><td>Mufrad mudzakkar</td><td>${AR('هٰذَا')}</td><td>${AR('ذٰلِكَ')}</td></tr>
+<tr><td>Mufrad muannats</td><td>${AR('هٰذِهِ')}</td><td>${AR('تِلْكَ')}</td></tr>
+<tr><td>Mutsanna mudzakkar</td><td>${AR('هٰذَانِ / هٰذَيْنِ')}</td><td>${AR('ذَانِكَ')}</td></tr>
+<tr><td>Mutsanna muannats</td><td>${AR('هَاتَانِ / هَاتَيْنِ')}</td><td>${AR('تَانِكَ')}</td></tr>
+<tr><td>Jamak</td><td>${AR('هٰؤُلَاءِ')}</td><td>${AR('أُولٰئِكَ')}</td></tr></table></div>
+${EX('ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ','Kitab (Al-Qur\'an) itu tidak ada keraguan padanya (QS al-Baqarah: 2)')}
+${EX('أُولٰئِكَ عَلَى هُدًى مِنْ رَبِّهِمْ','Mereka itulah yang mendapat petunjuk dari Tuhannya (QS al-Baqarah: 5)')}
+<h3>Isim Maushul (Kata Sambung "yang")</h3>
+<div class="scroll"><table class="t"><tr><th></th><th>Mudzakkar</th><th>Muannats</th></tr>
+<tr><td>Mufrad</td><td>${AR('الَّذِي')}</td><td>${AR('الَّتِي')}</td></tr>
+<tr><td>Mutsanna</td><td>${AR('اللَّذَانِ / اللَّذَيْنِ')}</td><td>${AR('اللَّتَانِ / اللَّتَيْنِ')}</td></tr>
+<tr><td>Jamak</td><td>${AR('الَّذِينَ')}</td><td>${AR('اللَّاتِي / اللَّائِي')}</td></tr>
+<tr><td>Umum</td><td colspan="2">${AR('مَنْ')} (untuk yang berakal), ${AR('مَا')} (untuk yang tidak berakal)</td></tr></table></div>
+${EX('الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ','Orang-orang yang beriman kepada yang gaib (QS al-Baqarah: 3)')}
+${EX('الطَّالِبَةُ الَّتِي تَقْرَأُ الْقُرْآنَ مُجْتَهِدَةٌ','Mahasiswi yang membaca Al-Qur\'an itu rajin')}`,
+ quiz:[
+ Q('Kata الْمُسْلِمُونَ dalam جَاءَ الْمُسْلِمُونَ ber-i\'rab rafa\' dengan tanda…','جَاءَ الْمُسْلِمُونَ',['Wawu, karena jamak mudzakkar salim','Dhammah','Alif','Nun'],'Jamak mudzakkar salim: rafa\' dengan wawu, nashab/khafdh dengan ya\'.'),
+ Q('Kata الْمُسْلِمِينَ dalam رَأَيْتُ الْمُسْلِمِينَ ber-i\'rab nashab dengan tanda…','رَأَيْتُ الْمُسْلِمِينَ',['Ya\'','Fathah','Kasrah','Alif'],'Jamak mudzakkar salim dinashabkan dengan ya\'.'),
+ Q('Kata أَبُوكَ dalam جَاءَ أَبُوكَ ber-i\'rab rafa\' dengan tanda…','جَاءَ أَبُوكَ',['Wawu, karena asma\'ul khamsah','Dhammah','Alif','Nun'],'أَبٌ termasuk asma\'ul khamsah.'),
+ Q('Kata أَبَاكَ dalam رَأَيْتُ أَبَاكَ ber-i\'rab nashab dengan tanda…','رَأَيْتُ أَبَاكَ',['Alif','Fathah','Ya\'','Kasrah'],'Asma\'ul khamsah dinashabkan dengan alif.'),
+ Q('Kata الطَّالِبَانِ dalam جَاءَ الطَّالِبَانِ ber-i\'rab rafa\' dengan tanda…','جَاءَ الطَّالِبَانِ',['Alif, karena tatsniyah','Dhammah','Wawu','Nun'],'Isim tatsniyah: rafa\' dengan alif, nashab/khafdh dengan ya\'.'),
+ Q('Kata الْمُسْلِمَاتِ dalam رَأَيْتُ الْمُسْلِمَاتِ ber-i\'rab nashab dengan tanda…','رَأَيْتُ الْمُسْلِمَاتِ',['Kasrah, karena jamak muannats salim','Fathah','Ya\'','Alif'],'Jamak muannats salim dinashabkan dengan kasrah sebagai pengganti fathah.'),
+ Q('Kata أَحْمَدَ dalam مَرَرْتُ بِأَحْمَدَ ber-i\'rab khafdh dengan tanda…','مَرَرْتُ بِأَحْمَدَ',['Fathah, karena isim ghairu munsharif','Kasrah','Ya\'','Sukun'],'أَحْمَدُ adalah ghairu munsharif (\'alam dengan wazan fi\'il), sehingga dikhafdhkan dengan fathah.'),
+ Q('Kata يَكْتُبُونَ ber-i\'rab rafa\' dengan tanda…','يَكْتُبُونَ',['Tetapnya nun (af\'al khamsah)','Dhammah','Wawu','Alif'],'Af\'al khamsah: rafa\' dengan tetapnya nun, nashab dan jazm dengan membuang nun.'),
+ Q('Manakah isim NAKIRAH?','',['كِتَابٌ','الْكِتَابُ','مُحَمَّدٌ','هُوَ'],'كِتَابٌ bisa diberi alif-lam, jadi ia nakirah. Yang lain ma\'rifat (alif-lam, \'alam, dhamir).'),
+ Q('كِتَابُ مُحَمَّدٍ termasuk ma\'rifat karena…','كِتَابُ مُحَمَّدٍ',['Di-idhafah-kan kepada isim \'alam','Bertanwin','Isim isyarah','Isim dhamir'],'Isim yang di-idhafah-kan kepada salah satu ma\'rifat menjadi ma\'rifat.'),
+ Q('Isim isyarah untuk mufrad muannats yang dekat adalah…','… طَالِبَةٌ مُجْتَهِدَةٌ',['هٰذِهِ','هٰذَا','تِلْكَ','هٰؤُلَاءِ'],'هٰذِهِ untuk satu perempuan/benda muannats yang dekat.'),
+ Q('Isim isyarah untuk jamak yang jauh adalah…','',['أُولٰئِكَ','هٰؤُلَاءِ','ذٰلِكَ','تِلْكَ'],'أُولٰئِكَ, seperti dalam أُولٰئِكَ عَلَى هُدًى مِنْ رَبِّهِمْ.'),
+ Q('Isim maushul yang tepat: جَاءَ الطُّلَّابُ ___ نَجَحُوا','جَاءَ الطُّلَّابُ … نَجَحُوا',['الَّذِينَ','الَّذِي','الَّتِي','اللَّذَانِ'],'الطُّلَّابُ jamak mudzakkar, maka maushulnya الَّذِينَ.'),
+ Q('Isim maushul yang tepat: الْمَرْأَةُ ___ تُعَلِّمُ الْقُرْآنَ','الْمَرْأَةُ … تُعَلِّمُ الْقُرْآنَ',['الَّتِي','الَّذِي','الَّذِينَ','مَنْ'],'الْمَرْأَةُ mufrad muannats, maka maushulnya الَّتِي.')
+ ],
+ write:[
+ {p:'Isi dengan isim isyarah yang tepat: ___ مَسْجِدٌ كَبِيرٌ (dekat)',ar:true,key:['هذا'],model:'هٰذَا'},
+ {p:'Isi dengan isim isyarah yang tepat: ___ سَيَّارَةٌ جَدِيدَةٌ (jauh)',ar:true,key:['تلك'],model:'تِلْكَ'},
+ {p:'Susun satu kalimat memakai isim maushul الَّذِي, lalu tulis artinya.',ar:true,free:true,model:'الطَّالِبُ الَّذِي يَجْلِسُ فِي الْفَصْلِ مُجْتَهِدٌ (Mahasiswa yang duduk di kelas itu rajin)'}
+ ]},
+
+{id:'p6',no:6,arN:'النَّوَاصِبُ وَالْجَوَازِمُ',t:'Bab al-Af\'al: \'Awamil Nawashib & Jawazim pada Fi\'il Mudhari\'',sub:'Sub-CPMK4',
+ goal:'Mahasiswa mampu mengubah fi\'il mudhari\' marfu\' menjadi manshub/majzum sesuai \'amil yang tepat (minimal 4 dari 5 soal) dan menjelaskan pengaruh \'amil pada teks.',
+ materi:()=>`
+<p>Ingat: fi'il mudhari' itu <b>marfu'</b> selama tidak ada "pengganggu". Pengganggunya ada dua kelompok: <b>nawashib</b> (penashab) dan <b>jawazim</b> (penjazm).</p>
+<h3>Nawashib (Penashab)</h3>
+${MATAN('فَالنَّوَاصِبُ عَشَرَةٌ، وَهِيَ: أَنْ، وَلَنْ، وَإِذَنْ، وَكَيْ، وَلَامُ كَيْ، وَلَامُ الْجُحُودِ، وَحَتَّى، وَالْجَوَابُ بِالْفَاءِ وَالْوَاوِ، وَأَوْ','Nawashib ada sepuluh: أَنْ، لَنْ، إِذَنْ، كَيْ، lam kay, lam juhud, حَتَّى, jawab dengan fa\' dan wawu, dan أَوْ.')}
+${EX('لَنْ أَذْهَبَ','Aku tidak akan pergi: يَذْهَبُ → أَذْهَبَ (fathah)')}
+${EX('أُرِيدُ أَنْ أَتَعَلَّمَ','Aku ingin belajar')}
+${EX('جِئْتُ لِأَتَعَلَّمَ','Aku datang untuk belajar (lam kay)')}
+${EX('لَنْ يَكْتُبُوا','Mereka tidak akan menulis: nun dibuang (af\'al khamsah)')}
+<h3>Jawazim (Penjazm)</h3>
+${MATAN('وَالْجَوَازِمُ ثَمَانِيَةَ عَشَرَ، وَهِيَ: لَمْ، وَلَمَّا، وَأَلَمْ، وَأَلَمَّا، وَلَامُ الْأَمْرِ وَالدُّعَاءِ، وَلَا فِي النَّهْيِ وَالدُّعَاءِ، وَإِنْ، وَمَا، وَمَنْ، وَمَهْمَا، وَإِذْمَا، وَأَيٌّ، وَمَتَى، وَأَيَّانَ، وَأَيْنَ، وَأَنَّى، وَحَيْثُمَا، وَكَيْفَمَا، وَإِذًا فِي الشِّعْرِ خَاصَّةً','Jawazim ada delapan belas: لَمْ، لَمَّا، أَلَمْ، أَلَمَّا، lam amr dan doa، لَا nahi dan doa، إِنْ، مَا، مَنْ، مَهْمَا، إِذْمَا، أَيٌّ، مَتَى، أَيَّانَ، أَيْنَ، أَنَّى، حَيْثُمَا، كَيْفَمَا، dan إِذًا khusus dalam syair.')}
+${EX('لَمْ يَلِدْ وَلَمْ يُولَدْ','Dia tidak beranak dan tidak diperanakkan (QS al-Ikhlas: 3)')}
+${EX('لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا','Jangan bersedih, sesungguhnya Allah bersama kita (QS at-Taubah: 40)')}
+${EX('لِيُنْفِقْ ذُو سَعَةٍ مِنْ سَعَتِهِ','Hendaklah orang yang mampu memberi nafkah menurut kemampuannya (QS ath-Thalaq: 7)')}
+${EX('إِنْ تَدْرُسْ تَنْجَحْ','Jika kamu belajar, kamu akan berhasil (dua fi\'il dijazmkan)')}
+<div class="note blue"><b>Jazim satu fi'il vs dua fi'il.</b> ${AR('لَمْ، لَمَّا، أَلَمْ، أَلَمَّا، لَامُ الْأَمْرِ، لَا النَّاهِيَةُ')} menjazmkan <b>satu</b> fi'il. Adawat syarth (${AR('إِنْ، مَنْ، مَا، مَهْمَا، مَتَى، أَيْنَ')}, dst.) menjazmkan <b>dua</b> fi'il: fi'il syarth dan jawabnya.</div>
+<h3>Perubahan Tanda pada Fi'il Mudhari'</h3>
+<div class="scroll"><table class="t"><tr><th>Bentuk</th><th>Marfu'</th><th>Manshub (لَنْ)</th><th>Majzum (لَمْ)</th></tr>
+<tr><td>Shahih akhir</td><td>${AR('يَكْتُبُ')}</td><td>${AR('لَنْ يَكْتُبَ')}</td><td>${AR('لَمْ يَكْتُبْ')}</td></tr>
+<tr><td>Af'al khamsah</td><td>${AR('يَكْتُبُونَ')}</td><td>${AR('لَنْ يَكْتُبُوا')}</td><td>${AR('لَمْ يَكْتُبُوا')}</td></tr>
+<tr><td>Mu'tal akhir (wawu)</td><td>${AR('يَدْعُو')}</td><td>${AR('لَنْ يَدْعُوَ')}</td><td>${AR('لَمْ يَدْعُ')}</td></tr>
+<tr><td>Mu'tal akhir (ya')</td><td>${AR('يَرْمِي')}</td><td>${AR('لَنْ يَرْمِيَ')}</td><td>${AR('لَمْ يَرْمِ')}</td></tr>
+<tr><td>Mu'tal akhir (alif)</td><td>${AR('يَخْشَى')}</td><td>${AR('لَنْ يَخْشَى')} (fathah muqaddarah)</td><td>${AR('لَمْ يَخْشَ')}</td></tr></table></div>
+<div class="note"><b>Tips Ning Tika:</b> ketika menganalisis, lakukan tiga langkah: (1) temukan 'amilnya, (2) tentukan nashib atau jazim, (3) lihat bentuk fi'ilnya (shahih, af'al khamsah, atau mu'tal) untuk menentukan tandanya.</div>`,
+ quiz:[
+ Q('Dalam لَنْ أَذْهَبَ, fi\'il أَذْهَبَ ber-i\'rab…','لَنْ أَذْهَبَ',['Manshub dengan fathah','Majzum dengan sukun','Marfu\' dengan dhammah','Majrur dengan kasrah'],'لَنْ termasuk nawashib; fi\'il shahih akhir dinashabkan dengan fathah.'),
+ Q('Dalam لَمْ يَذْهَبْ, fi\'il يَذْهَبْ ber-i\'rab…','لَمْ يَذْهَبْ',['Majzum dengan sukun','Manshub dengan fathah','Marfu\' dengan dhammah','Mabni'],'لَمْ termasuk jawazim; tanda jazm fi\'il shahih akhir adalah sukun.'),
+ Q('Dalam لَمْ يَلِدْ (QS al-Ikhlas: 3), fi\'il يَلِدْ ber-i\'rab…','لَمْ يَلِدْ وَلَمْ يُولَدْ',['Majzum dengan sukun karena لَمْ','Marfu\' dengan dhammah','Manshub dengan fathah','Fi\'il amr mabni sukun'],'Asalnya يَلِدُ. Setelah dimasuki لَمْ menjadi يَلِدْ.'),
+ Q('Bentuk yang benar setelah لَنْ untuk يَكْتُبُونَ adalah…','لَنْ … (يَكْتُبُونَ)',['لَنْ يَكْتُبُوا','لَنْ يَكْتُبُونَ','لَنْ يَكْتُبُونَا','لَنْ يَكْتُبُ'],'Af\'al khamsah dinashabkan dengan membuang nun; alifnya disebut alif fariqah.'),
+ Q('Bentuk yang benar setelah لَمْ untuk يَدْعُو adalah…','لَمْ … (يَدْعُو)',['لَمْ يَدْعُ','لَمْ يَدْعُو','لَمْ يَدْعُوْ','لَمْ يَدْعَ'],'Fi\'il mu\'tal akhir dijazmkan dengan membuang huruf \'illat-nya.'),
+ Q('Dalam لَا تَحْزَنْ, kata لَا adalah…','لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا',['Lā nāhiyah (larangan) yang menjazmkan','Lā nafiyah yang tidak beramal','Lā yang menashabkan','Harf jar'],'لَا untuk larangan termasuk jawazim, sehingga تَحْزَنُ menjadi تَحْزَنْ.'),
+ Q('Manakah yang termasuk NAWASHIB?','',['كَيْ','لَمَّا','إِنْ','مَهْمَا'],'كَيْ termasuk nawashib; tiga lainnya jawazim.'),
+ Q('Manakah yang termasuk JAWAZIM?','',['لَمَّا','أَنْ','لَنْ','إِذَنْ'],'لَمَّا termasuk jawazim; tiga lainnya nawashib.'),
+ Q('Pilih bentuk yang tepat: أُرِيدُ أَنْ ___ اللُّغَةَ الْعَرَبِيَّةَ','أُرِيدُ أَنْ … اللُّغَةَ الْعَرَبِيَّةَ',['أَتَعَلَّمَ','أَتَعَلَّمُ','أَتَعَلَّمْ','تَعَلَّمْتُ'],'أَنْ menashabkan fi\'il mudhari\', sehingga akhirnya fathah.'),
+ Q('Dalam إِنْ تَدْرُسْ تَنْجَحْ, yang dijazmkan oleh إِنْ adalah…','إِنْ تَدْرُسْ تَنْجَحْ',['Dua fi\'il: تَدْرُسْ (fi\'il syarth) dan تَنْجَحْ (jawab syarth)','Hanya تَدْرُسْ','Hanya تَنْجَحْ','Tidak ada yang dijazmkan'],'إِنْ syarthiyyah menjazmkan dua fi\'il.'),
+ Q('Dalam لِيُنْفِقْ ذُو سَعَةٍ, huruf لِـ adalah…','لِيُنْفِقْ ذُو سَعَةٍ مِنْ سَعَتِهِ',['Lam amr yang menjazmkan','Lam kay yang menashabkan','Lam jar','Lam ibtida\''],'Lam amr memberi makna perintah dan menjazmkan fi\'il mudhari\'.'),
+ Q('Mengapa تَكْتُبِينَ menjadi لَمْ تَكْتُبِي?','لَمْ تَكْتُبِي',['Af\'al khamsah dijazmkan dengan membuang nun','Mu\'tal akhir dijazmkan dengan membuang huruf \'illat','Karena ya\' mutakallim','Karena dinashabkan'],'تَكْتُبِينَ termasuk af\'al khamsah; tanda jazmnya hadzf nun.')
+ ],
+ write:[
+ {p:'Masukkan لَنْ pada: يَذْهَبُ الطَّالِبُ',ar:true,key:['لن يذهب الطالب'],model:'لَنْ يَذْهَبَ الطَّالِبُ'},
+ {p:'Masukkan لَمْ pada: يَكْتُبُونَ الدَّرْسَ',ar:true,key:['لم يكتبوا الدرس'],model:'لَمْ يَكْتُبُوا الدَّرْسَ'},
+ {p:'Masukkan لَمْ pada: يَدْعُو',ar:true,key:['لم يدع'],model:'لَمْ يَدْعُ'},
+ {p:'Ubah menjadi larangan (لَا نَاهِيَة): تَكْذِبُ',ar:true,key:['لا تكذب'],model:'لَا تَكْذِبْ'},
+ {p:'Jelaskan \'amil dan perubahan i\'rab pada: لَمْ يَلِدْ وَلَمْ يُولَدْ',ar:false,free:true,model:'لَمْ adalah huruf jazm. يَلِدْ = fi\'il mudhari\' majzum dengan sukun (asal يَلِدُ). يُولَدْ = fi\'il mudhari\' majhul, juga majzum dengan sukun karena لَمْ (asal يُولَدُ).'}
+ ]},
+
+{id:'p8',no:8,arN:'الِامْتِحَانُ النِّصْفِيُّ',t:'Simulasi UTS: Kalam, I\'rab, Alamat I\'rab, Af\'al',sub:'Sub-CPMK1–5',uts:true,
+ goal:'Mengukur kesiapan UTS: identifikasi kalam beserta tanda, penentuan i\'rab dan alamat i\'rab, serta analisis pengaruh \'amil nashab-jazm.',
+ materi:()=>`
+<h3>Kisi-kisi UTS (Pekan 1–7)</h3>
+<div class="scroll"><table class="t"><tr><th>No</th><th>Kompetensi</th><th>Bentuk soal</th></tr>
+<tr><td>1</td><td>Sejarah dan kedudukan nahwu</td><td>Pilihan ganda</td></tr>
+<tr><td>2</td><td>Klasifikasi kalam: isim/fi'il/harf beserta tandanya</td><td>Pilihan ganda dan identifikasi</td></tr>
+<tr><td>3</td><td>Fi'il madhi, mudhari', amr dan konversinya</td><td>Pilihan ganda</td></tr>
+<tr><td>4</td><td>Jenis i'rab; mudzakkar-muannats</td><td>Pilihan ganda</td></tr>
+<tr><td>5</td><td>Alamat i'rab; ma'rifat-nakirah; isyarah-maushul</td><td>Pilihan ganda</td></tr>
+<tr><td>6</td><td>'Awamil nawashib dan jawazim</td><td>Pilihan ganda dan analisis</td></tr>
+<tr><td>7</td><td>Tahlil teks pendek terintegrasi</td><td>Analisis teks</td></tr></table></div>
+<div class="note pink"><b>Aturan simulasi:</b> 20 soal acak, waktu 30 menit. Soal 1–14 dari bank soal Pertemuan 1–6, soal 15–20 adalah tahlil teks doa dan ayat pendek. Pembahasan muncul di akhir, jadi kerjakan dengan jujur seperti ujian sungguhan. Lulus simulasi: ≥ 75.</div>
+<h3>Teks Tahlil yang Dipakai</h3>
+${EX('رَبِّ زِدْنِي عِلْمًا','Ya Tuhanku, tambahkanlah ilmu kepadaku (QS Thaha: 114)')}
+${EX('لَمْ يَلِدْ وَلَمْ يُولَدْ','Dia tidak beranak dan tidak diperanakkan (QS al-Ikhlas: 3)')}
+<div class="note"><b>Langkah tahlil:</b> (1) tentukan jenis kata, (2) tentukan mu'rab atau mabni, (3) tentukan i'rab dan tandanya, (4) sebutkan 'amil yang mempengaruhinya.</div>`,
+ tahlil:[
+ Q('Tahlil: kata زِدْ dalam رَبِّ زِدْنِي عِلْمًا termasuk…','رَبِّ زِدْنِي عِلْمًا',['Fi\'il amr (bermakna doa)','Fi\'il madhi','Fi\'il mudhari\'','Isim'],'زِدْ adalah fi\'il amr dari زَادَ – يَزِيدُ. Ketika ditujukan kepada Allah, maknanya permohonan (doa).'),
+ Q('Tahlil: huruf ـنِي dalam زِدْنِي adalah…','رَبِّ زِدْنِي عِلْمًا',['Nun wiqayah + ya\' mutakallim (dhamir muttashil: "aku")','Nun af\'al khamsah','Nun taukid','Bagian dari kata dasar'],'Nun wiqayah "melindungi" fi\'il dari kasrah, lalu ya\' adalah dhamir mutakallim.'),
+ Q('Tahlil: kata عِلْمًا dalam رَبِّ زِدْنِي عِلْمًا adalah…','رَبِّ زِدْنِي عِلْمًا',['Isim nakirah, manshub dengan fathah','Isim ma\'rifat, marfu\' dengan dhammah','Fi\'il madhi','Isim majrur dengan kasrah'],'Bertanwin fathah, bisa diberi alif-lam (nakirah), dan berposisi sebagai objek kedua sehingga manshub.'),
+ Q('Tahlil: \'amil yang menjazmkan يَلِدْ dalam لَمْ يَلِدْ adalah…','لَمْ يَلِدْ وَلَمْ يُولَدْ',['لَمْ','وَ','لَا','Tidak ada \'amil'],'لَمْ adalah huruf nafi, jazm, dan qalb.'),
+ Q('Tahlil: tanda jazm pada يُولَدْ adalah…','لَمْ يَلِدْ وَلَمْ يُولَدْ',['Sukun, karena shahih akhir','Membuang nun','Membuang huruf \'illat','Fathah'],'Akhir katanya dal (shahih), sehingga dijazmkan dengan sukun.'),
+ Q('Tahlil: jika لَمْ diganti لَنْ, maka يَلِدْ berubah menjadi…','لَمْ يَلِدْ',['لَنْ يَلِدَ','لَنْ يَلِدُ','لَنْ يَلِدْ','لَنْ يَلِدِ'],'لَنْ menashabkan; tanda nashab fi\'il shahih akhir adalah fathah.')
+ ]},
+
+{id:'p9',no:9,arN:'أَدَوَاتُ الِاسْتِفْهَامِ وَالضَّمَائِرُ',t:'Adawat al-Istifham (Kata Tanya) & ad-Dhamair (Muttashil-Munfashil)',sub:'Sub-CPMK6',
+ goal:'Mahasiswa mampu menyusun minimal 3 kalimat tanya dengan adawat istifham berbeda dan menggunakan dhamir muttashil-munfashil secara tepat dalam dialog sederhana.',
+ materi:()=>`
+<h3>Adawat al-Istifham (Kata Tanya)</h3>
+<div class="scroll"><table class="t"><tr><th>Kata tanya</th><th>Arti / untuk</th><th>Contoh</th></tr>
+<tr><td>${AR('هَلْ')}</td><td>Apakah (jawab: نَعَمْ / لَا)</td><td>${AR('هَلْ أَنْتَ طَالِبٌ؟ نَعَمْ، أَنَا طَالِبٌ')}</td></tr>
+<tr><td>${AR('أَ')}</td><td>Apakah (hamzah istifham)</td><td>${AR('أَأَنْتَ مِنْ غُرِيسِيك؟')}</td></tr>
+<tr><td>${AR('مَا / مَاذَا')}</td><td>Apa (benda / tidak berakal)</td><td>${AR('مَا اسْمُكَ؟ مَاذَا تَقْرَأُ؟')}</td></tr>
+<tr><td>${AR('مَنْ')}</td><td>Siapa (berakal)</td><td>${AR('مَنْ هٰذَا؟')}</td></tr>
+<tr><td>${AR('أَيْنَ / مِنْ أَيْنَ')}</td><td>Di mana / dari mana</td><td>${AR('أَيْنَ تَسْكُنُ؟ مِنْ أَيْنَ أَنْتَ؟')}</td></tr>
+<tr><td>${AR('مَتَى')}</td><td>Kapan</td><td>${AR('مَتَى تَذْهَبُ إِلَى الْجَامِعَةِ؟')}</td></tr>
+<tr><td>${AR('كَيْفَ')}</td><td>Bagaimana</td><td>${AR('كَيْفَ حَالُكَ؟')}</td></tr>
+<tr><td>${AR('كَمْ')}</td><td>Berapa (diikuti isim mufrad manshub)</td><td>${AR('كَمْ طَالِبًا فِي الْفَصْلِ؟')}</td></tr>
+<tr><td>${AR('لِمَاذَا')}</td><td>Mengapa</td><td>${AR('لِمَاذَا تَتَعَلَّمُ اللُّغَةَ الْعَرَبِيَّةَ؟')}</td></tr>
+<tr><td>${AR('أَيُّ')}</td><td>Yang mana / apa (diikuti mudhaf ilaih)</td><td>${AR('أَيُّ كِتَابٍ تَقْرَأُ؟')}</td></tr></table></div>
+<h3>Ad-Dhamair (Kata Ganti)</h3>
+<p><b>Dhamir munfashil</b> = kata ganti yang berdiri sendiri. <b>Dhamir muttashil</b> = kata ganti yang menempel pada kata lain.</p>
+<div class="scroll"><table class="t"><tr><th>Orang</th><th>Munfashil (rafa')</th><th>Munfashil (nashab)</th><th>Muttashil (pada isim)</th><th>Contoh</th></tr>
+<tr><td>Dia lk</td><td>${AR('هُوَ')}</td><td>${AR('إِيَّاهُ')}</td><td>${AR('ـهُ')}</td><td>${AR('كِتَابُهُ')}</td></tr>
+<tr><td>Mereka berdua</td><td>${AR('هُمَا')}</td><td>${AR('إِيَّاهُمَا')}</td><td>${AR('ـهُمَا')}</td><td>${AR('كِتَابُهُمَا')}</td></tr>
+<tr><td>Mereka lk</td><td>${AR('هُمْ')}</td><td>${AR('إِيَّاهُمْ')}</td><td>${AR('ـهُمْ')}</td><td>${AR('كِتَابُهُمْ')}</td></tr>
+<tr><td>Dia pr</td><td>${AR('هِيَ')}</td><td>${AR('إِيَّاهَا')}</td><td>${AR('ـهَا')}</td><td>${AR('كِتَابُهَا')}</td></tr>
+<tr><td>Mereka pr</td><td>${AR('هُنَّ')}</td><td>${AR('إِيَّاهُنَّ')}</td><td>${AR('ـهُنَّ')}</td><td>${AR('كِتَابُهُنَّ')}</td></tr>
+<tr><td>Kamu lk</td><td>${AR('أَنْتَ')}</td><td>${AR('إِيَّاكَ')}</td><td>${AR('ـكَ')}</td><td>${AR('كِتَابُكَ')}</td></tr>
+<tr><td>Kalian berdua</td><td>${AR('أَنْتُمَا')}</td><td>${AR('إِيَّاكُمَا')}</td><td>${AR('ـكُمَا')}</td><td>${AR('كِتَابُكُمَا')}</td></tr>
+<tr><td>Kalian lk</td><td>${AR('أَنْتُمْ')}</td><td>${AR('إِيَّاكُمْ')}</td><td>${AR('ـكُمْ')}</td><td>${AR('كِتَابُكُمْ')}</td></tr>
+<tr><td>Kamu pr</td><td>${AR('أَنْتِ')}</td><td>${AR('إِيَّاكِ')}</td><td>${AR('ـكِ')}</td><td>${AR('كِتَابُكِ')}</td></tr>
+<tr><td>Kalian pr</td><td>${AR('أَنْتُنَّ')}</td><td>${AR('إِيَّاكُنَّ')}</td><td>${AR('ـكُنَّ')}</td><td>${AR('كِتَابُكُنَّ')}</td></tr>
+<tr><td>Saya</td><td>${AR('أَنَا')}</td><td>${AR('إِيَّايَ')}</td><td>${AR('ـِي')}</td><td>${AR('كِتَابِي')}</td></tr>
+<tr><td>Kami</td><td>${AR('نَحْنُ')}</td><td>${AR('إِيَّانَا')}</td><td>${AR('ـنَا')}</td><td>${AR('كِتَابُنَا')}</td></tr></table></div>
+${EX('إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ','Hanya kepada-Mu kami menyembah dan hanya kepada-Mu kami memohon pertolongan (QS al-Fatihah: 5); إِيَّاكَ adalah dhamir munfashil manshub')}
+<h3>Dhamir Muttashil sebagai Fa'il pada Fi'il Madhi</h3>
+${EX('كَتَبْتُ، كَتَبْتَ، كَتَبْتِ، كَتَبْنَا','Saya menulis, kamu (lk) menulis, kamu (pr) menulis, kami menulis')}
+${EX('كَتَبُوا، كَتَبَا، كَتَبْنَ','Mereka (lk) menulis, mereka berdua menulis, mereka (pr) menulis')}
+<h3>Contoh Dialog Ta'aruf</h3>
+${EX('مَا اسْمُكَ؟ — اِسْمِي أَحْمَدُ','Siapa namamu? — Namaku Ahmad')}
+${EX('مِنْ أَيْنَ أَنْتَ؟ — أَنَا مِنْ غُرِيسِيك','Dari mana kamu? — Aku dari Gresik')}
+${EX('أَيْنَ تَدْرُسُ؟ — أَدْرُسُ فِي جَامِعَةِ سُونَان غُرِيسِيك','Di mana kamu belajar? — Aku belajar di Universitas Sunan Gresik')}
+${EX('كَيْفَ حَالُكِ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ','Bagaimana kabarmu (pr)? — Baik, alhamdulillah')}
+<div class="note pink"><b>Latihan dialog:</b> buka obrolan dengan Ning Tika dan ketik "ayo latihan dialog ta'aruf". Ning Tika akan bertanya dalam bahasa Arab, lalu kamu menjawab.</div>`,
+ quiz:[
+ Q('Kata tanya untuk menanyakan WAKTU adalah…','',['مَتَى','أَيْنَ','كَيْفَ','كَمْ'],'مَتَى = kapan.'),
+ Q('Kata tanya untuk menanyakan TEMPAT adalah…','',['أَيْنَ','مَتَى','مَنْ','لِمَاذَا'],'أَيْنَ = di mana.'),
+ Q('Kata tanya untuk menanyakan KEADAAN adalah…','',['كَيْفَ','كَمْ','مَا','هَلْ'],'كَيْفَ حَالُكَ؟ = bagaimana kabarmu?'),
+ Q('Pertanyaan yang jawabannya نَعَمْ atau لَا memakai…','',['هَلْ','مَنْ','مَاذَا','أَيْنَ'],'هَلْ dan hamzah (أَ) dipakai untuk pertanyaan ya/tidak.'),
+ Q('Lengkapi: ___ اسْمُكَ؟ — اِسْمِي فَاطِمَةُ','… اسْمُكَ؟',['مَا','مَنْ','كَمْ','مَتَى'],'Ungkapan baku menanyakan nama: مَا اسْمُكَ؟'),
+ Q('Lengkapi: ___ أَنْتَ؟ — أَنَا مِنْ غُرِيسِيك','… أَنْتَ؟',['مِنْ أَيْنَ','كَيْفَ','مَتَى','لِمَاذَا'],'Menanyakan asal daerah: مِنْ أَيْنَ أَنْتَ؟'),
+ Q('Isim setelah كَمْ istifhamiyyah berbentuk…','كَمْ طَالِبًا فِي الْفَصْلِ؟',['Mufrad manshub (tamyiz)','Jamak marfu\'','Mufrad majrur','Mutsanna'],'كَمْ طَالِبًا: isim setelahnya mufrad manshub sebagai tamyiz (dibahas lebih dalam di pertemuan 12).'),
+ Q('Dhamir munfashil untuk "kamu (perempuan)" adalah…','',['أَنْتِ','أَنْتَ','هِيَ','أَنْتُنَّ'],'أَنْتِ dengan kasrah untuk satu perempuan; أَنْتَ dengan fathah untuk satu laki-laki.'),
+ Q('Dhamir munfashil untuk "mereka (perempuan)" adalah…','',['هُنَّ','هُمْ','هُمَا','أَنْتُنَّ'],'هُنَّ = mereka (pr); هُمْ = mereka (lk).'),
+ Q('Kata إِيَّاكَ dalam إِيَّاكَ نَعْبُدُ adalah…','إِيَّاكَ نَعْبُدُ',['Dhamir munfashil manshub','Dhamir muttashil marfu\'','Isim isyarah','Harf nida\''],'إِيَّا + كَ = dhamir munfashil pada posisi nashab (maf\'ul bih yang didahulukan).'),
+ Q('Arti كِتَابُنَا adalah…','كِتَابُنَا',['Buku kami','Buku saya','Buku mereka','Buku kalian'],'ـنَا = kami/kita.'),
+ Q('Huruf تُ dalam كَتَبْتُ adalah…','كَتَبْتُ',['Dhamir muttashil marfu\' (fa\'il), artinya "saya"','Ta\' ta\'nits sakinah','Ta\' marbuthah','Huruf mudhara\'ah'],'تُ dhammah = saya; تَ fathah = kamu (lk); تِ kasrah = kamu (pr).'),
+ Q('Ganti kata yang tepat: الطَّالِبَاتُ مُجْتَهِدَاتٌ → ___ مُجْتَهِدَاتٌ','… مُجْتَهِدَاتٌ',['هُنَّ','هُمْ','هِيَ','نَحْنُ'],'الطَّالِبَاتُ = jamak muannats, maka dhamirnya هُنَّ.')
+ ],
+ write:[
+ {p:'Tulis pertanyaan bahasa Arab: "Siapa namamu?" (kepada laki-laki)',ar:true,key:['ما اسمك'],model:'مَا اسْمُكَ؟'},
+ {p:'Tulis pertanyaan bahasa Arab: "Bagaimana kabarmu?" (kepada perempuan)',ar:true,key:['كيف حالك'],model:'كَيْفَ حَالُكِ؟'},
+ {p:'Tulis pertanyaan bahasa Arab: "Di mana kamu tinggal?" (kepada laki-laki)',ar:true,key:['اين تسكن'],model:'أَيْنَ تَسْكُنُ؟'},
+ {p:'Susun 3 kalimat tanya dengan 3 adawat istifham berbeda, lengkap dengan jawabannya (dialog singkat).',ar:true,free:true,model:'مَا اسْمُكَ؟ اِسْمِي أَحْمَدُ. / مِنْ أَيْنَ أَنْتَ؟ أَنَا مِنْ غُرِيسِيك. / مَتَى تَذْهَبُ إِلَى الْجَامِعَةِ؟ أَذْهَبُ فِي الصَّبَاحِ.'}
+ ]}
+];
+const byId=id=>M.find(m=>m.id===id);
+
+/* ================= state ================= */
+const S={ai:{mode:'offline'},best:{},cur:null,tab:'materi',q:null,chat:[],timer:null};
+try{S.best=JSON.parse(localStorage.getItem('ningtika-best')||'{}')}catch(e){}
+const saveBest=()=>{try{localStorage.setItem('ningtika-best',JSON.stringify(S.best))}catch(e){}};
+S.id={nama:'',nim:'',kelas:''};
+try{Object.assign(S.id,JSON.parse(localStorage.getItem('ningtika-id')||'{}'))}catch(e){}
+const hasId=()=>S.id.nama.trim().length>=3&&S.id.nim.trim().length>=4;
+const idLine=()=>`Nama: ${S.id.nama}\nNIM: ${S.id.nim}${S.id.kelas?'\nKelas: '+S.id.kelas:''}`;
+function idForm(prefix){return `<div class="row3"><div><label for="${prefix}Nm">Nama lengkap</label><input type="text" id="${prefix}Nm" value="${esc(S.id.nama)}" placeholder="mis. Ahmad Fauzi" autocomplete="name"></div>
+ <div><label for="${prefix}Nim">NIM</label><input type="text" id="${prefix}Nim" value="${esc(S.id.nim)}" placeholder="mis. 2026010123" inputmode="numeric"></div>
+ <div><label for="${prefix}Kl">Kelas</label><input type="text" id="${prefix}Kl" value="${esc(S.id.kelas)}" placeholder="A / B / C"></div>
+ <button class="btn pri" id="${prefix}Save">Simpan</button></div>`}
+function bindIdForm(prefix,after){$(prefix+'Save').onclick=()=>{const nama=$(prefix+'Nm').value.trim(),nim=$(prefix+'Nim').value.trim(),kelas=$(prefix+'Kl').value.trim().toUpperCase();
+ if(nama.length<3){toast('Tulis nama lengkapmu dulu ya.');$(prefix+'Nm').focus();return}
+ if(nim.replace(/\D/g,'').length<4){toast('NIM belum benar. Periksa lagi ya.');$(prefix+'Nim').focus();return}
+ S.id={nama,nim,kelas};try{localStorage.setItem('ningtika-id',JSON.stringify(S.id))}catch(e){}
+ toast(`Ahlan, ${nama.split(' ')[0]}! Identitas tersimpan.`);renderIdCard();after&&after()}}
+function renderIdCard(){const c=$('idCard');
+ if(hasId()){c.innerHTML=`<div class="who"><div style="font-size:26px">🎓</div><div style="flex:1;min-width:200px"><b>${esc(S.id.nama)}</b> · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}<br><small style="color:var(--mute)">Identitas ini dicantumkan di setiap hasil latihan yang kamu salin untuk dosen.</small></div><button class="btn sm" id="rekap">📋 Salin rekap semua nilai</button><button class="btn sm" id="ganti">Ganti identitas</button></div>`;
+  $('ganti').onclick=()=>{c.innerHTML=`<h3>Ubah identitas</h3>${idForm('id')}`;bindIdForm('id')};
+  $('rekap').onclick=async()=>{const rows=M.map(m=>`${m.uts?'Simulasi UTS (P8)':'P'+m.no+' '+m.t.split(':')[0]}: ${S.best[m.id]!=null?S.best[m.id]+(isDone(m)?' (tuntas)':''):'belum'}`).join('\n');
+   const txt=`Rekap Rihlah Nahwu – Bahasa Arab Semester 1\n${idLine()}\n\n${rows}\n\nDisalin: ${new Date().toLocaleString('id-ID')}`;
+   try{await navigator.clipboard.writeText(txt);toast('Rekap tersalin. Tempelkan di LMS/E-Santri.')}catch(e){toast('Gagal menyalin; silakan tangkap layar.')}}}
+ else{c.innerHTML=`<h3>📝 Isi identitas dulu sebelum mengerjakan</h3><small style="color:var(--mute)">Nama dan NIM akan tercantum di hasil latihan dan Simulasi UTS yang kamu kirim ke dosen.</small>${idForm('id')}`;bindIdForm('id')}}
+const passMark=m=>m.uts?75:80;
+const isDone=m=>(S.best[m.id]||0)>=passMark(m);
+
+/* ================= AI ================= */
+const SYS=`Kamu adalah "Ning Tika", ustazah muda pesantren dari Gresik yang ramah, sabar, dan ceria, tutor AI untuk mahasiswa semester 1 mata kuliah Bahasa Arab (Nahwu dasar) Prodi Pendidikan Agama Islam Universitas Sunan Gresik (dosen pengampu: Sartikah, Lc., M.A.). Banyak mahasiswa adalah pemula yang belum pernah mondok, jadi jelaskan dengan bahasa sederhana, contoh pendek, dan langkah demi langkah. Acuan utama: Matan al-Ajurumiyyah (Ibnu Ajurrum ash-Shanhaji) dan Nazham al-'Imrithi. Pendukung: Mulakhkhash Qawa'id al-Lughah al-'Arabiyyah (Fuad Ni'mah), Jami' ad-Durus al-'Arabiyyah (al-Ghulayaini), al-Amtsilah at-Tashrifiyyah. Cakupan materi: sejarah nahwu; kalam (isim, fi'il, harf dan tandanya); fi'il madhi-mudhari'-amr; i'rab (rafa', nashab, khafdh, jazm); mudzakkar-muannats; 'alamat i'rab (termasuk asma'ul khamsah, tatsniyah, jamak, af'al khamsah, ghairu munsharif); ma'rifat-nakirah; isim isyarah dan maushul; 'awamil nawashib dan jawazim; adawat istifham; dhamir muttashil-munfashil. Gaya: hangat, menyapa "Mas" atau "Mbak" (bila jenis kelamin tak jelas pakai "Mas/Mbak" atau "kamu"), sesekali memakai ungkapan Arab ringan seperti أَحْسَنْتَ atau بَارَكَ اللَّهُ فِيكَ. Pedagogi Sokratik: pancing dengan pertanyaan dan beri petunjuk bertahap; jangan langsung memberi jawaban latihan kecuali mahasiswa sudah mencoba. Tulis setiap contoh Arab dengan harakat lengkap. Bila ada khilaf ulama nahwu (Bashrah-Kufah), sebutkan singkat dan adil. Jangan mengarang ayat, hadis, atau nomor ayat; bila ragu katakan perlu dicek ke dosen atau kitab. Bila mahasiswa minta latihan dialog, berperanlah sebagai teman bicara dalam bahasa Arab sederhana berharakat, satu pertanyaan per giliran, disertai terjemah singkat dan koreksi lembut. Jawab dalam bahasa Indonesia, ringkas (maks. 120 kata) kecuali diminta panjang. Jangan menjawab hal di luar pembelajaran bahasa Arab/keislaman secara panjang; arahkan kembali ke materi.`;
+async function aiAsk(prompt,{onText,history=null}={}){
+ const msgs=history?history.map(m=>({...m})):[{role:'user',content:prompt}];
+ msgs[0]={role:'user',content:SYS+'\n\n---\n'+msgs[0].content};
+ if(S.ai.mode==='claude'){const r=await S.ai.sample(msgs,{cache:false,modelTier:'quick',onText:onText?(({text})=>onText(text)):undefined});return r.text}
+ if(S.ai.mode==='puter'){const r=await window.puter.ai.chat(msgs);const t=typeof r==='string'?r:(r?.message?.content?.[0]?.text??r?.message?.content??r?.text??String(r));onText&&onText(t);return t}
+ throw new Error('offline')}
+function setAI(mode,label){S.ai.mode=mode;$('aiPill').className='pill '+mode;$('aiTxt').textContent=label}
+async function initAI(){
+ if(window.claude&&typeof window.claude.use==='function'){
+  try{const s=await window.claude.use('sample');if(s){S.ai.sample=s;setAI('claude','AI: Ning Tika aktif')}else setAI('offline','AI: mode luring')}catch(e){setAI('offline','AI: mode luring')}
+  return}
+ const sc=document.createElement('script');sc.src='https://js.puter.com/v2/';
+ sc.onload=()=>{if(window.puter&&window.puter.ai)setAI('puter','AI: Ning Tika aktif');else setAI('offline','AI: mode luring')};
+ sc.onerror=()=>setAI('offline','AI: mode luring');
+ document.head.appendChild(sc);
+ setTimeout(()=>{if(S.ai.mode==='offline'&&$('aiTxt').textContent.includes('menghubungkan'))setAI('offline','AI: mode luring')},9000)}
+function aiBox(el,title){el.innerHTML=`<div class="ai"><div class="who">${title} <span class="tag">${S.ai.mode==='offline'?'luring':'AI'}</span></div><div class="t typing">Ning Tika sedang berpikir</div></div>`;return el.querySelector('.t')}
+function parseJSON(t){const m=String(t).match(/\{[\s\S]*\}/);if(!m)throw new Error('no json');return JSON.parse(m[0])}
+
+/* ================= render home ================= */
+function renderHome(){
+ $('grid').innerHTML=M.map(m=>`<div class="door ${m.uts?'p8':''} ${isDone(m)?'done':''}" data-m="${m.id}" tabindex="0" role="button" aria-label="Pertemuan ${m.no}: ${esc(m.t)}">
+  <div class="num">${toArNum(m.no)}</div><div class="arN">${m.arN}</div>
+  <h3>${m.uts?'Pertemuan 8 · ':'Pertemuan '+m.no+' · '}${esc(m.uts?'Simulasi UTS':m.t.split(':')[0].split(';')[0])}</h3>
+  <small>${esc(m.uts?'Kalam, I\'rab, Alamat I\'rab, \'Awamil':m.t.includes(':')?m.t.split(':').slice(1).join(':'):m.t.split(';').slice(1).join(';')||m.sub)}</small>
+  <div class="st">${S.best[m.id]!=null?(isDone(m)?'✓ Tuntas · nilai terbaik '+S.best[m.id]:'Nilai terbaik '+S.best[m.id]+' · ayo coba lagi'):'Belum dikerjakan'}</div></div>`).join('');
+ const n=M.filter(isDone).length;$('progBar').style.width=(n/M.length*100)+'%';$('progTxt').textContent=`${n} dari ${M.length} pertemuan tuntas`}
+$('grid').addEventListener('click',e=>{const d=e.target.closest('[data-m]');if(d)openMod(d.dataset.m)});
+$('grid').addEventListener('keydown',e=>{if(e.key==='Enter'){const d=e.target.closest('[data-m]');if(d)openMod(d.dataset.m)}});
+function goHome(){stopTimer();S.cur=null;$('mod').style.display='none';$('home').style.display='';$('hero').style.display='';$('homeBtn').hidden=true;renderHome();window.scrollTo({top:0,behavior:'smooth'});updateChips()}
+$('homeBtn').onclick=goHome;$('startBtn').onclick=()=>openMod('p1');
+
+/* ================= module view ================= */
+function openMod(id,tab='materi'){
+ stopTimer();const m=byId(id);S.cur=id;S.tab=tab;
+ $('home').style.display='none';$('hero').style.display='none';$('homeBtn').hidden=false;$('mod').style.display='block';
+ const tabs=m.uts?[['materi','Kisi-kisi'],['latihan','Mulai Simulasi UTS']]:[['materi','📖 Materi'],['latihan','✅ Latihan'],['tulis','✍️ Praktik Menulis']];
+ $('mod').innerHTML=`<div class="modHead"><div class="door ${m.uts?'p8':''}" style="all:unset"><div class="num" style="width:58px;height:58px;display:grid;place-items:center;font-family:Amiri,serif;font-size:30px;color:#fff;background:linear-gradient(135deg,${m.uts?'var(--pink),#9a3a8a':'var(--blue),var(--navy)'});clip-path:polygon(50% 0,64% 15%,85% 15%,85% 36%,100% 50%,85% 64%,85% 85%,64% 85%,50% 100%,36% 85%,15% 85%,15% 64%,0 50%,15% 36%,15% 15%,36% 15%)">${toArNum(m.no)}</div></div>
+  <div><div class="arN">${m.arN}</div><h2>${esc(m.t)}</h2><small>Pertemuan ${m.no} · ${m.sub}</small></div><div class="sp"></div>
+  <div style="display:flex;gap:6px">${prevNext(m)}</div></div>
+  <div class="tabs">${tabs.map(([k,l])=>`<button class="tab ${k===tab?'on':''}" data-t="${k}">${l}</button>`).join('')}<button class="tab" data-t="ask">💬 Tanya Ning Tika</button></div>
+  <div class="panel" id="pBody"></div>`;
+ $('mod').querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{if(b.dataset.t==='ask'){openChat();return}stopTimer();S.tab=b.dataset.t;$('mod').querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));renderTab()});
+ $('mod').querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>openMod(b.dataset.go));
+ renderTab();updateChips();window.scrollTo({top:0,behavior:'smooth'})}
+function prevNext(m){const i=M.indexOf(m);return (i>0?`<button class="btn sm" data-go="${M[i-1].id}">← P${M[i-1].no}</button>`:'')+(i<M.length-1?`<button class="btn sm blue" data-go="${M[i+1].id}">P${M[i+1].no} →</button>`:'')}
+function renderTab(){const m=byId(S.cur),b=$('pBody');
+ if(S.tab==='materi'){b.innerHTML=`<div class="tujuan"><b>Tujuan pertemuan:</b> ${esc(m.goal)}</div>${m.materi()}
+  <div class="acts" style="margin-top:18px"><button class="btn pri" id="toLat">${m.uts?'Mulai Simulasi UTS':'Lanjut ke Latihan'} →</button><button class="btn" id="sumBtn">Minta Ning Tika merangkum</button></div><div id="sumOut"></div>`;
+  $('toLat').onclick=()=>{S.tab='latihan';$('mod').querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t==='latihan'));renderTab()};
+  $('sumBtn').onclick=async()=>{const t=aiBox($('sumOut'),'Rangkuman Ning Tika');try{const r=await aiAsk(`Buat rangkuman materi "${m.t}" untuk mahasiswa pemula dalam 5 poin singkat, masing-masing dengan 1 contoh Arab berharakat. Akhiri dengan 1 pertanyaan pemantik.`,{onText:x=>{t.classList.remove('typing');t.innerHTML=md(x)}});t.classList.remove('typing');t.innerHTML=md(r)}catch(e){t.classList.remove('typing');t.innerHTML=md(OFFSUM[m.id]||'Mode luring: baca ulang tabel dan contoh di atas, lalu kerjakan latihannya ya.')}}}
+ else if(!hasId()){b.innerHTML=`<div class="idCard" style="margin:0;box-shadow:none"><h3>📝 Isi identitas dulu ya</h3><small style="color:var(--mute)">Sebelum mengerjakan latihan, tulis nama dan NIM-mu. Data ini akan tercantum di hasil yang kamu kirim ke dosen.</small>${idForm('ig')}</div>`;bindIdForm('ig',renderTab)}
+ else if(S.tab==='latihan')startQuiz(m);
+ else if(S.tab==='tulis')renderWrite(m)}
+
+/* ================= quiz ================= */
+function startQuiz(m,extra){
+ let items;
+ if(m.uts){const pool=M.filter(x=>!x.uts&&['p1','p2','p3','p4','p5','p6'].includes(x.id)).flatMap(x=>x.quiz.map(q=>({...q,src:x.no})));
+  const per={};shuffle(pool).forEach(q=>{(per[q.src]=per[q.src]||[]).push(q)});
+  const pick=[];[1,2,3,4,5,6].forEach(n=>pick.push(...(per[n]||[]).slice(0,n===1?2:n===2||n===6?3:2)));
+  items=[...shuffle(pick).slice(0,14),...m.tahlil]}
+ else items=extra||shuffle(m.quiz).slice(0,10);
+ items=items.map(q=>{const ok=q.o[0];return{...q,opts:shuffle(q.o),ok}});
+ S.q={m:m.id,items,i:0,score:0,ans:[],uts:!!m.uts,start:Date.now()};
+ if(m.uts){$('pBody').innerHTML=`<div class="result"><div class="ar" style="font-size:32px;color:var(--pink)">بِسْمِ اللَّهِ</div><h3>Simulasi UTS siap</h3><p>20 soal · 30 menit · pembahasan muncul di akhir.</p><p class="note blue" style="max-width:420px;margin:10px auto">Peserta: <b>${esc(S.id.nama)}</b> · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}</p><button class="btn pri" id="go">Mulai sekarang</button></div>`;
+  $('go').onclick=()=>{S.q.start=Date.now();startTimer(30*60);renderQ()};return}
+ renderQ()}
+function startTimer(sec){stopTimer();const end=Date.now()+sec*1000;S.timer=setInterval(()=>{const left=Math.max(0,Math.round((end-Date.now())/1000));const el=document.querySelector('.timer');if(el)el.textContent=`⏱ ${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).padStart(2,'0')}`;if(left<=0){stopTimer();toast('Waktu habis!');finishQuiz()}},500)}
+function stopTimer(){if(S.timer){clearInterval(S.timer);S.timer=null}}
+function renderQ(){const q=S.q,it=q.items[q.i],n=q.items.length;
+ $('pBody').innerHTML=`<div class="qtop"><span>Soal ${q.i+1} dari ${n}${it.src?` · dari P${it.src}`:''}${q.uts&&q.i>=14?' · Tahlil':''}</span><div class="bar"><div style="width:${q.i/n*100}%"></div></div>${q.uts?'<span class="timer">⏱ 30:00</span>':`<span>Skor: ${q.score}</span>`}</div>
+ <div class="qcard"><div class="q">${md(it.q)}</div>${it.ar?`<div class="qar">${SAY(it.ar.replace(/…/g,''))} <span lang="ar">${it.ar}</span></div>`:''}
+ <div class="opts">${it.opts.map((o,k)=>`<button class="opt" data-k="${k}"><span class="k">${'ABCD'[k]}</span><span>${/[؀-ۿ]/.test(o)&&!/[a-z]/i.test(o)?`<span class="ar" lang="ar">${o}</span>`:md(o)}</span></button>`).join('')}</div><div id="qfb"></div></div>`;
+ $('pBody').querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.k))}
+function answer(k){const q=S.q,it=q.items[q.i],pick=it.opts[k],right=pick===it.ok;
+ q.ans.push({q:it.q,ar:it.ar,pick,ok:it.ok,right,ex:it.ex});if(right)q.score++;
+ const bs=$('pBody').querySelectorAll('.opt');bs.forEach(b=>b.disabled=true);
+ if(q.uts){bs[k].style.borderColor='var(--blue)';bs[k].style.background='#eef5ff';setTimeout(next,350);return}
+ bs[k].classList.add(right?'ok':'bad');if(!right)bs[it.opts.indexOf(it.ok)].classList.add('ok');
+ if(right)$('qfb').innerHTML=`<div class="fb ok"><b>${shuffle(['أَحْسَنْتَ! Tepat sekali.','مُمْتَازٌ! Benar.','بَارَكَ اللَّهُ فِيكَ, jawabanmu benar.'])[0]}</b><br>${md(it.ex)}</div><div class="acts"><button class="btn pri" id="nx">Lanjut →</button></div>`;
+ else $('qfb').innerHTML=`<div class="fb bad"><b>Belum tepat, ndak apa-apa.</b> ${md(it.ex)}</div><div class="acts"><button class="btn" id="why">Ning Tika, kenapa salah?</button><button class="btn pri" id="nx">Lanjut →</button></div><div id="whyOut"></div>`;
+ $('nx').onclick=next;
+ if(!right)$('why').onclick=async()=>{$('why').disabled=true;const t=aiBox($('whyOut'),'Penjelasan Ning Tika');
+  try{const r=await aiAsk(`Mahasiswa pemula menjawab soal nahwu berikut dan salah.\nSoal: ${it.q}\nTeks Arab: ${it.ar||'-'}\nJawaban mahasiswa: ${pick}\nJawaban benar: ${it.ok}\nPembahasan kunci: ${it.ex}\nJelaskan dengan lembut mengapa pilihannya keliru (apa yang mungkin membuatnya terkecoh) dan bagaimana cara berpikir yang benar, maksimal 90 kata, dengan satu contoh tambahan berharakat.`,{onText:x=>{t.classList.remove('typing');t.innerHTML=md(x)}});t.classList.remove('typing');t.innerHTML=md(r)}
+  catch(e){t.classList.remove('typing');t.innerHTML=md(`Mode luring. Pilihanmu "${pick}" kurang tepat; jawaban yang benar "${it.ok}". ${it.ex} Coba baca ulang bagian materi yang terkait, lalu ulangi latihannya ya.`)}}}
+function next(){S.q.i++;if(S.q.i>=S.q.items.length)finishQuiz();else renderQ()}
+function finishQuiz(){stopTimer();const q=S.q,m=byId(q.m),n=q.items.length,nilai=Math.round(q.score/n*100);
+ S.best[m.id]=Math.max(S.best[m.id]||0,nilai);saveBest();
+ const pass=nilai>=passMark(m);const dur=Math.round((Date.now()-q.start)/60000);
+ const wrong=q.ans.filter(a=>!a.right);
+ $('pBody').innerHTML=`<div class="result"><div style="color:var(--mute);font-size:14px">${esc(S.id.nama)} · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}</div><div class="big">${nilai}</div><p><b>${q.score} dari ${n} benar</b>${q.uts?` · ${dur} menit`:''}</p>
+ <p>${pass?'🌸 <b>مَاشَاءَ اللَّهُ!</b> Kamu tuntas di '+(q.uts?'simulasi UTS':'pertemuan ini')+'. Lanjutkan perjalananmu!':'💙 Belum mencapai '+passMark(m)+'. Ndak apa-apa, belajar nahwu itu memang bertahap. Baca ulang materinya lalu coba lagi ya.'}</p>
+ <div class="acts" style="justify-content:center"><button class="btn pri" id="again">Ulangi${q.uts?' simulasi':' latihan'}</button>${!q.uts?'<button class="btn blue" id="gen">Soal baru dari Ning Tika (AI)</button>':''}<button class="btn" id="copy">Salin hasil untuk dosen/LMS</button><button class="btn" id="fbk">Minta saran belajar</button></div></div>
+ ${wrong.length?`<h3>Pembahasan soal yang belum tepat</h3>${wrong.map(a=>`<div class="fb bad" style="text-align:left"><b>${md(a.q)}</b>${a.ar?`<div class="ar" style="text-align:right">${a.ar}</div>`:'<br>'}Jawabanmu: ${md(a.pick)} · Kunci: <b>${md(a.ok)}</b><br>${md(a.ex)}</div>`).join('')}`:''}<div id="fbOut"></div>`;
+ $('again').onclick=()=>startQuiz(m);
+ $('copy').onclick=async()=>{const txt=`Rihlah Nahwu – ${q.uts?'Simulasi UTS':'Pertemuan '+m.no+': '+m.t}\n${idLine()}\nNilai: ${nilai} (${q.score}/${n} benar)\nTanggal: ${new Date().toLocaleString('id-ID')}`;try{await navigator.clipboard.writeText(txt);toast('Hasil tersalin. Tempelkan di LMS/E-Santri.')}catch(e){toast('Gagal menyalin; silakan tangkap layar hasil ini.')}};
+ $('fbk').onclick=async()=>{const t=aiBox($('fbOut'),'Saran Ning Tika');try{const r=await aiAsk(`Mahasiswa menyelesaikan latihan "${q.uts?'Simulasi UTS':m.t}" dengan nilai ${nilai}. Soal yang salah: ${wrong.map(a=>a.q+' (kunci: '+a.ok+')').join(' | ')||'tidak ada'}. Beri saran belajar yang menyemangati: 3 poin konkret materi yang perlu diulang dan 1 latihan mandiri singkat. Maks 110 kata.`,{onText:x=>{t.classList.remove('typing');t.innerHTML=md(x)}});t.classList.remove('typing');t.innerHTML=md(r)}catch(e){t.classList.remove('typing');t.innerHTML=md(wrong.length?'Mode luring. Fokus ulangi bagian yang salah di atas, buat ringkasan tabel sendiri, lalu kerjakan ulang latihannya besok supaya ingatanmu makin kuat.':'Mode luring. Semua benar, أَحْسَنْتَ! Coba jelaskan ulang materi ini kepada temanmu. Mengajarkan adalah cara belajar terbaik.')}};
+ if(!q.uts)$('gen').onclick=()=>genQuiz(m);
+ renderHomeSilently()}
+function renderHomeSilently(){try{renderHome()}catch(e){}}
+async function genQuiz(m){
+ if(S.ai.mode==='offline'){toast('AI sedang luring. Soal diacak ulang dari bank soal.');startQuiz(m);return}
+ $('pBody').innerHTML='';const t=aiBox($('pBody'),'Ning Tika menyusun soal baru');
+ try{const r=await aiAsk(`Buat 5 soal pilihan ganda BARU untuk materi "${m.t}" (tingkat pemula, berdasarkan Matan al-Ajurumiyyah). Gunakan contoh Arab berharakat lengkap yang berbeda dari contoh umum. Balas HANYA JSON: {"soal":[{"q":"pertanyaan bahasa Indonesia","ar":"teks Arab berharakat atau kosong","o":["jawaban BENAR","pengecoh1","pengecoh2","pengecoh3"],"ex":"pembahasan singkat"}]}. Jawaban benar SELALU di indeks 0. Pastikan kuncinya benar menurut kaidah.`);
+  const j=parseJSON(r);const items=(j.soal||[]).filter(x=>x.q&&Array.isArray(x.o)&&x.o.length>=2).map(x=>Q(x.q,x.ar||'',x.o.slice(0,4),x.ex||''));
+  if(!items.length)throw 0;toast('Soal baru siap. Bismillah!');startQuiz(m,items)}
+ catch(e){t.classList.remove('typing');toast('Gagal membuat soal baru; memakai bank soal.');startQuiz(m)}}
+
+/* ================= praktik menulis ================= */
+const KEYS='ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ء أ إ آ ة ى ؤ ئ'.split(' ');
+const HAR=[['َ','fathah'],['ِ','kasrah'],['ُ','dhammah'],['ْ','sukun'],['ّ','syaddah'],['ً','tanwin a'],['ٍ','tanwin i'],['ٌ','tanwin u']];
+function renderWrite(m){const b=$('pBody');
+ b.innerHTML=`<div class="note blue">Tulis jawabanmu dengan papan ketik Arab di HP/laptop atau dengan papan huruf di bawah kotak. Harakat boleh ditulis atau tidak. Untuk soal berkunci, sistem mencocokkan hurufnya; untuk soal terbuka, minta Ning Tika memeriksa.</div>`+
+ m.write.map((w,i)=>`<div class="wtask" data-i="${i}"><div class="no">Tugas ${i+1}${w.free?' · terbuka':''}</div><p style="margin:4px 0 10px">${md(w.p)}</p>
+ ${w.ar?`<input type="text" class="arIn" lang="ar" dir="rtl" id="w${i}" autocomplete="off"><div class="kb" data-for="w${i}">${KEYS.map(k=>`<button type="button" data-ch="${k}">${k}</button>`).join('')}${HAR.map(([h,l])=>`<button type="button" data-ch="${h}" title="${l}">ـ${h}</button>`).join('')}<button type="button" class="w" data-ch=" ">spasi</button><button type="button" class="w" data-bs="1">hapus</button><button type="button" class="w" data-ch="؟">؟</button></div>`:`<textarea id="w${i}" rows="3"></textarea>`}
+ <div class="acts"><button class="btn pri sm" data-chk="${i}">Periksa</button><button class="btn sm" data-ai="${i}">Periksa dengan Ning Tika</button><button class="btn sm" data-show="${i}">Lihat contoh jawaban</button></div><div id="wo${i}"></div></div>`).join('');
+ b.querySelectorAll('.kb').forEach(kb=>kb.addEventListener('click',e=>{const x=e.target.closest('button');if(!x)return;const inp=$(kb.dataset.for);if(x.dataset.bs)inp.value=inp.value.slice(0,-1);else inp.value+=x.dataset.ch;inp.focus()}));
+ b.querySelectorAll('[data-show]').forEach(x=>x.onclick=()=>{const w=m.write[x.dataset.show];$('wo'+x.dataset.show).innerHTML=`<div class="fb ok"><b>Contoh jawaban:</b> ${w.ar?`<span class="ar" lang="ar">${w.model}</span> ${SAY(w.model)}`:md(w.model)}</div>`});
+ b.querySelectorAll('[data-chk]').forEach(x=>x.onclick=()=>{const i=+x.dataset.chk,w=m.write[i],v=$('w'+i).value.trim(),o=$('wo'+i);
+  if(!v){toast('Tulis jawabanmu dulu ya.');return}
+  if(w.free||!w.key){o.innerHTML=`<div class="fb ok">Tugas terbuka tidak punya satu kunci. Tekan <b>Periksa dengan Ning Tika</b> atau bandingkan dengan contoh jawaban.</div>`;return}
+  const okk=w.key.some(k=>strip(k)===strip(v));
+  o.innerHTML=okk?`<div class="fb ok"><b>أَحْسَنْتَ! Benar.</b> ${w.ar?`<span class="ar" lang="ar">${w.model}</span> ${SAY(w.model)}`:''}<br><small>Cek juga harakatmu dengan contoh di atas.</small></div>`:`<div class="fb bad"><b>Belum cocok.</b> Periksa lagi huruf dan bentuk katanya (huruf mudhara'ah, akhir kata, nun yang dibuang, dll.). Kamu bisa minta Ning Tika memeriksanya.</div>`});
+ b.querySelectorAll('[data-ai]').forEach(x=>x.onclick=async()=>{const i=+x.dataset.ai,w=m.write[i],v=$('w'+i).value.trim();if(!v){toast('Tulis jawabanmu dulu ya.');return}
+  const t=aiBox($('wo'+i),'Koreksi Ning Tika');
+  try{const r=await aiAsk(`Periksa jawaban mahasiswa pemula untuk tugas nahwu ini.\nTugas: ${w.p}\nJawaban mahasiswa: ${v}\nContoh jawaban dosen: ${w.model}\nNilai ketepatan (benar / sebagian / belum), tunjukkan kesalahan huruf, harakat, atau kaidah bila ada, beri versi yang benar berharakat lengkap, dan satu kalimat penyemangat. Maks 100 kata.`,{onText:y=>{t.classList.remove('typing');t.innerHTML=md(y)}});t.classList.remove('typing');t.innerHTML=md(r)}
+  catch(e){t.classList.remove('typing');t.innerHTML=md(`Mode luring: Ning Tika belum bisa memeriksa otomatis. Bandingkan jawabanmu dengan contoh ini:\n\n${w.model}`)}})}
+
+/* ================= rangkuman luring ================= */
+const OFFSUM={
+p1:'**Rangkuman:** (1) Nahwu membahas akhir kata dalam kalimat: جَاءَ مُحَمَّدٌ / رَأَيْتُ مُحَمَّدًا. (2) Lahir karena lahn setelah Islam meluas. (3) Peletak dasar yang masyhur: Abu al-Aswad ad-Du\'ali. (4) Mazhab Bashrah dan Kufah. (5) Nahwu adalah ilmu alat untuk memahami Al-Qur\'an dan Hadits.\n\n*Pertanyaan:* apa jadinya bila kita salah harakat saat membaca ayat?',
+p2:'**Rangkuman:** Kalam = lafal tersusun yang berfaedah. Kalimah ada 3: isim (tanda: khafdh, tanwin, ال, huruf jar), fi\'il (tanda: قَدْ، سَـ، سَوْفَ، ta\' ta\'nits sakinah), dan harf (tidak menerima keduanya).\n\n*Pertanyaan:* apa tanda isim pada kata الْكِتَابُ?',
+p3:'**Rangkuman:** Madhi berakhir fathah (كَتَبَ), mudhari\' diawali huruf أَنَيْتُ dan marfu\' (يَكْتُبُ), amr majzum (اُكْتُبْ). Hafalkan 6 bab wazan tsulatsi.\n\n*Pertanyaan:* apa amr dari يَفْتَحُ?',
+p4:'**Rangkuman:** I\'rab = perubahan akhir kata karena \'amil. Isim: rafa\', nashab, khafdh. Fi\'il: rafa\', nashab, jazm. Tanda muannats: ة، ى، اء; ada juga muannats sima\'i seperti شَمْسٌ.\n\n*Pertanyaan:* mengapa isim tidak bisa dijazmkan?',
+p5:'**Rangkuman:** Rafa\': dhammah, wawu, alif, nun. Nashab: fathah, alif, kasrah, ya\', hadzf nun. Khafdh: kasrah, ya\', fathah. Jazm: sukun, hadzf. Ma\'rifat ada 5 macam. Isyarah: هٰذَا، هٰذِهِ، ذٰلِكَ، تِلْكَ. Maushul: الَّذِي، الَّتِي، الَّذِينَ.\n\n*Pertanyaan:* apa tanda nashab pada الْمُسْلِمَاتِ?',
+p6:'**Rangkuman:** Nawashib (أَنْ، لَنْ، كَيْ…) menjadikan mudhari\' manshub: لَنْ يَكْتُبَ. Jawazim (لَمْ، لَمَّا، لَا nahiyah, lam amr, إِنْ…) menjadikannya majzum: لَمْ يَكْتُبْ. Af\'al khamsah membuang nun; mu\'tal akhir membuang huruf \'illat saat jazm.\n\n*Pertanyaan:* bagaimana لَمْ + يَرْمِي?',
+p8:'**Persiapan UTS:** ulangi tanda isim-fi\'il-harf, wazan fi\'il, 4 i\'rab, tabel alamat i\'rab, serta nawashib-jawazim. Latih tahlil 4 langkah: jenis kata → mu\'rab/mabni → i\'rab dan tanda → \'amil.',
+p9:'**Rangkuman:** Kata tanya: هَلْ، أَ، مَا، مَنْ، أَيْنَ، مَتَى، كَيْفَ، كَمْ، لِمَاذَا، أَيُّ. Dhamir munfashil: أَنَا، نَحْنُ، أَنْتَ، أَنْتِ، هُوَ، هِيَ… Muttashil menempel: كِتَابِي، كِتَابُكَ، كِتَابُهُ.\n\n*Pertanyaan:* bagaimana bertanya "dari mana kamu?"'};
+
+/* ================= chat ================= */
+const FAQ=[
+[/sejarah|abul? ?aswad|du.?ali|sibawai|bashrah|kufah|lahir.*nahwu/i,'Menurut riwayat masyhur, nahwu diletakkan dasarnya oleh **Abu al-Aswad ad-Du\'ali** atas arahan Sayyidina Ali, karena banyak terjadi *lahn* setelah Islam meluas. Lalu berkembang mazhab **Bashrah** (Sibawaih, *Al-Kitab*) dan **Kufah** (al-Kisa\'i, al-Farra\').\n\nCoba pikirkan: kenapa kesalahan harakat bisa berbahaya saat membaca Al-Qur\'an?'],
+[/kalam|kalimah/i,'Kalam itu اللَّفْظُ الْمُرَكَّبُ الْمُفِيدُ بِالْوَضْعِ: tersusun dan berfaedah. Contoh: اَلْعِلْمُ نُورٌ.\n\nKalimah ada 3: isim, fi\'il, harf. Menurutmu, اَلْعِلْمُ termasuk yang mana? Lihat ال di depannya…'],
+[/tanda.*isim|isim.*tanda|ciri.*isim/i,'Tanda isim ada 4: **khafdh**, **tanwin**, **alif-lam**, dan **huruf khafdh/jar**. Contoh: بِسْمِ اللَّهِ, كِتَابٌ, الْمَسْجِدُ.\n\nCoba tebak: tanda isim apa yang ada pada فِي الْبَيْتِ?'],
+[/tanda.*fi.?il|fi.?il.*tanda|ciri.*fi.?il/i,'Tanda fi\'il: **قَدْ**, **sin**, **سَوْفَ**, dan **ta\' ta\'nits sakinah**. Contoh: قَدْ أَفْلَحَ، سَيَقُولُ، سَوْفَ تَعْلَمُونَ، قَامَتْ.\n\nCoba: bisakah كِتَابٌ diberi قَدْ? Kalau tidak bisa, ia apa?'],
+[/harf|huruf ma.?ani/i,'Harf adalah kata yang **tidak menerima tanda isim maupun fi\'il**, misalnya فِي، مِنْ، إِلَى، هَلْ، لَمْ. Maknanya baru sempurna bila digabung kata lain: فِي الْفَصْلِ.'],
+[/madhi|mudhari|amr|wazan|tashrif|aniitu|anaitu/i,'Madhi berakhir **fathah** (كَتَبَ). Mudhari\' diawali huruf **أَنَيْتُ** dan marfu\' (يَكْتُبُ). Amr selalu **majzum** (اُكْتُبْ).\n\nCoba bentuk mudhari\' dari جَلَسَ. Petunjuk: ia ikut wazan فَعَلَ – يَفْعِلُ.'],
+[/mudzakar|mudzakkar|muannats|muanats|ta.? ?marbuthah/i,'Tanda muannats: **ة** (مُدَرِّسَةٌ), **ى** (كُبْرَى), **اء** (صَحْرَاءُ). Ada juga muannats tanpa tanda seperti شَمْسٌ، أَرْضٌ، نَارٌ.\n\nKalau مُسْلِمٌ dijadikan muannats, jadi apa?'],
+[/alamat|tanda i.?rab|asma.?ul? ?khamsah|af.?al ?khamsah|tatsniyah|jamak|ghairu munsharif/i,'Ringkasnya: **rafa\'** = dhammah, wawu, alif, nun; **nashab** = fathah, alif, kasrah, ya\', hadzf nun; **khafdh** = kasrah, ya\', fathah; **jazm** = sukun, hadzf. Contoh: جَاءَ الْمُسْلِمُونَ (wawu), رَأَيْتُ أَبَاكَ (alif).\n\nCoba: الْمُسْلِمِينَ pada رَأَيْتُ الْمُسْلِمِينَ ditandai apa?'],
+[/i.?rab|rafa|nashab|khafdh|jar\b|jazm/i,'I\'rab = perubahan akhir kata karena \'amil. Ada 4: **rafa\'** (جَاءَ زَيْدٌ), **nashab** (رَأَيْتُ زَيْدًا), **khafdh** (مَرَرْتُ بِزَيْدٍ), **jazm** (لَمْ يَضْرِبْ). Khafdh khusus isim, jazm khusus fi\'il.'],
+[/ma.?rifat?|nakirah/i,'Ma\'rifat ada 5: dhamir (أَنَا), \'alam (مُحَمَّدٌ), mubham (هٰذَا، الَّذِي), ber-ال (الْكِتَابُ), dan yang di-idhafah-kan ke salah satunya (كِتَابُ مُحَمَّدٍ). Nakirah = bisa diberi ال: كِتَابٌ.'],
+[/isyarah|tunjuk|hadza|haadzaa|dzalika/i,'Isim isyarah: dekat هٰذَا (lk), هٰذِهِ (pr), هٰؤُلَاءِ (jamak); jauh ذٰلِكَ، تِلْكَ، أُولٰئِكَ.\n\nUntuk "mobil itu" (سَيَّارَةٌ, muannats, jauh) pakai yang mana?'],
+[/maushul|alladzi|allati|alladzina/i,'Isim maushul: الَّذِي (lk), الَّتِي (pr), اللَّذَانِ، اللَّتَانِ، الَّذِينَ، اللَّاتِي, serta مَنْ dan مَا. Contoh: الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ.'],
+[/nawashib|nashib|lan\b|an\b.*nashab|kay/i,'Nawashib menashabkan mudhari\': أَنْ، لَنْ، إِذَنْ، كَيْ، dst. Contoh: لَنْ أَذْهَبَ (fathah), لَنْ يَكْتُبُوا (nun dibuang).\n\nCoba: أُرِيدُ أَنْ … (أَتَعَلَّمُ), bagaimana bentuk yang benar?'],
+[/jawazim|jazim|lam\b|lamma|nahi|la nahiyah/i,'Jawazim menjazmkan mudhari\': لَمْ، لَمَّا، lam amr, لَا nahiyah, dan adawat syarth. Contoh: لَمْ يَلِدْ وَلَمْ يُولَدْ, لَا تَحْزَنْ.\n\nCoba: لَمْ + يَدْعُو menjadi apa? Petunjuk: huruf \'illat-nya…'],
+[/istifham|kata tanya|tanya/i,'Kata tanya: هَلْ (apakah), مَا (apa), مَنْ (siapa), أَيْنَ (di mana), مَتَى (kapan), كَيْفَ (bagaimana), كَمْ (berapa), لِمَاذَا (mengapa).\n\nCoba buat: "Bagaimana kabarmu?"'],
+[/dhamir|dlamir|domir|dhomir|kata ganti|munfashil|muttashil/i,'Dhamir munfashil berdiri sendiri: أَنَا، نَحْنُ، أَنْتَ، أَنْتِ، هُوَ، هِيَ، هُمْ، هُنَّ. Muttashil menempel: كِتَابِي (bukuku), كِتَابُكَ (bukumu), كِتَابُهُ (bukunya).\n\n"Buku kami" dalam bahasa Arab jadi apa?']];
+const CHIPS={_:['Apa itu nahwu?','Bedanya isim, fi\'il, harf?','Tanda-tanda i\'rab apa saja?','Ayo latihan dialog ta\'aruf'],
+p1:['Siapa Abu al-Aswad ad-Du\'ali?','Kenapa nahwu disebut ilmu alat?','Beda nahwu dan sharaf?'],
+p2:['Tanda isim ada apa saja?','Kenapa قَامَتْ itu fi\'il?','Beri aku 5 kata untuk kuklasifikasi'],
+p3:['Cara membentuk fi\'il amr?','Apa itu huruf أَنَيْتُ?','Latih aku konversi madhi ke mudhari\''],
+p4:['Kenapa isim tidak bisa dijazmkan?','Apa itu muannats sima\'i?','Contoh rafa\' nashab khafdh'],
+p5:['Jelaskan asma\'ul khamsah','Beda tanda nashab jamak mudzakkar & muannats','Kapan pakai هٰذِهِ dan تِلْكَ?'],
+p6:['Beda nawashib dan jawazim?','لَمْ + يَدْعُو jadi apa?','Kenapa nun dibuang di لَنْ يَكْتُبُوا?'],
+p8:['Tips menghadapi UTS nahwu','Ajari aku langkah tahlil','Uji aku dengan 3 soal acak'],
+p9:['Ayo latihan dialog ta\'aruf','Beda أَنْتَ dan أَنْتِ','Kapan pakai كَمْ?']};
+function updateChips(){const c=[...(CHIPS[S.cur]||[]),...CHIPS._].slice(0,5);$('dChips').innerHTML=c.map(q=>`<button class="chip">${esc(q)}</button>`).join('')}
+$('dChips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b){$('chatIn').value=b.textContent;sendChat()}});
+function openChat(){$('drawer').classList.add('open');$('ov').classList.add('on');
+ if(!S.chat.length)S.chat.push({role:'assistant',content:'اَلسَّلَامُ عَلَيْكُمْ! Ahlan wa sahlan, Mas dan Mbak. Ning Tika di sini. Mau tanya soal nahwu apa hari ini? Ning ndak langsung kasih jawaban ya, kita pikir bareng-bareng supaya kamu benar-benar paham.'});
+ renderChat();setTimeout(()=>$('chatIn').focus(),250)}
+function closeChat(){$('drawer').classList.remove('open');$('ov').classList.remove('on')}
+$('fab').onclick=openChat;$('askBtn').onclick=openChat;$('dClose').onclick=closeChat;$('ov').onclick=closeChat;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeChat()});
+function renderChat(){$('msgs').innerHTML=S.chat.map(m=>`<div class="bub ${m.role==='user'?'me':'ning'}">${md(m.content)}</div>`).join('');$('msgs').scrollTop=1e6}
+async function sendChat(){const q=$('chatIn').value.trim();if(!q)return;$('chatIn').value='';
+ S.chat.push({role:'user',content:q});S.chat.push({role:'assistant',content:'…'});renderChat();
+ const bub=[...document.querySelectorAll('.bub.ning')].pop();
+ const ctx=S.cur?`(Mahasiswa sedang membuka Pertemuan ${byId(S.cur).no}: ${byId(S.cur).t}.)\n`:'';
+ const hist=S.chat.slice(0,-1).filter((m,i)=>!(i===0&&m.role==='assistant')).slice(-12);
+ if(hist.length)hist[hist.length-1]={role:'user',content:ctx+hist[hist.length-1].content};
+ try{const r=await aiAsk(null,{history:hist,onText:x=>{bub.innerHTML=md(x);$('msgs').scrollTop=1e6}});S.chat[S.chat.length-1].content=r}
+ catch(e){const f=FAQ.find(f=>f[0].test(q));S.chat[S.chat.length-1].content=(f?f[1]:'Afwan, Ning Tika sedang mode luring, jadi belum bisa menjawab bebas. Coba tanyakan tentang: kalam, tanda isim/fi\'il, madhi-mudhari\'-amr, i\'rab, mudzakkar-muannats, alamat i\'rab, ma\'rifat-nakirah, isyarah, maushul, nawashib, jawazim, kata tanya, atau dhamir.')+(S.ai.mode==='offline'?'\n\n_(mode luring)_':'')}
+ renderChat()}
+$('chatSend').onclick=sendChat;$('chatIn').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
+
+/* ================= init ================= */
+renderIdCard();renderHome();updateChips();initAI();
+if('speechSynthesis' in window)speechSynthesis.getVoices();
+</script>
+</body>
+</html>
