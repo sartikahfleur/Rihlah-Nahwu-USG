@@ -670,6 +670,18 @@ ${EX('كَيْفَ حَالُكِ؟ — بِخَيْرٍ، وَالْحَمْد�
 ];
 const byId=id=>M.find(m=>m.id===id);
 
+/* ================= kirim nilai ke Google Sheet dosen ================= */
+// Tempel URL Web App Google Apps Script di sini (berakhiran /exec). Kosong = fitur nonaktif.
+const SHEET_URL='';
+function queue(){try{return JSON.parse(localStorage.getItem('ningtika-antrian')||'[]')}catch(e){return[]}}
+function setQueue(q){try{localStorage.setItem('ningtika-antrian',JSON.stringify(q))}catch(e){}}
+async function postSheet(d){await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}
+async function kirimNilai(d){if(!SHEET_URL)return null;
+ try{await postSheet(d);flushQueue();return true}catch(e){const q=queue();q.push(d);setQueue(q.slice(-50));return false}}
+async function flushQueue(){if(!SHEET_URL||!navigator.onLine)return;const q=queue();if(!q.length)return;const left=[];
+ for(const d of q){try{await postSheet(d)}catch(e){left.push(d)}}setQueue(left);if(q.length>left.length)toast(`${q.length-left.length} nilai tertunda berhasil terkirim ke dosen.`)}
+window.addEventListener('online',flushQueue);
+
 /* ================= state ================= */
 const S={ai:{mode:'offline'},best:{},cur:null,tab:'materi',q:null,chat:[],timer:null};
 try{S.best=JSON.parse(localStorage.getItem('ningtika-best')||'{}')}catch(e){}
@@ -688,12 +700,12 @@ function bindIdForm(prefix,after){$(prefix+'Save').onclick=()=>{const nama=$(pre
  S.id={nama,nim,kelas};try{localStorage.setItem('ningtika-id',JSON.stringify(S.id))}catch(e){}
  toast(`Ahlan, ${nama.split(' ')[0]}! Identitas tersimpan.`);renderIdCard();after&&after()}}
 function renderIdCard(){const c=$('idCard');
- if(hasId()){c.innerHTML=`<div class="who"><div style="font-size:26px">🎓</div><div style="flex:1;min-width:200px"><b>${esc(S.id.nama)}</b> · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}<br><small style="color:var(--mute)">Identitas ini dicantumkan di setiap hasil latihan yang kamu salin untuk dosen.</small></div><button class="btn sm" id="rekap">📋 Salin rekap semua nilai</button><button class="btn sm" id="ganti">Ganti identitas</button></div>`;
+ if(hasId()){c.innerHTML=`<div class="who"><div style="font-size:26px">🎓</div><div style="flex:1;min-width:200px"><b>${esc(S.id.nama)}</b> · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}<br><small style="color:var(--mute)">${SHEET_URL?'Setiap nilai latihan dan Simulasi UTS otomatis terkirim ke dosen atas nama ini.':'Identitas ini dicantumkan di setiap hasil latihan yang kamu salin untuk dosen.'}</small></div><button class="btn sm" id="rekap">📋 Salin rekap semua nilai</button><button class="btn sm" id="ganti">Ganti identitas</button></div>`;
   $('ganti').onclick=()=>{c.innerHTML=`<h3>Ubah identitas</h3>${idForm('id')}`;bindIdForm('id')};
   $('rekap').onclick=async()=>{const rows=M.map(m=>`${m.uts?'Simulasi UTS (P8)':'P'+m.no+' '+m.t.split(':')[0]}: ${S.best[m.id]!=null?S.best[m.id]+(isDone(m)?' (tuntas)':''):'belum'}`).join('\n');
    const txt=`Rekap Rihlah Nahwu – Bahasa Arab Semester 1\n${idLine()}\n\n${rows}\n\nDisalin: ${new Date().toLocaleString('id-ID')}`;
    try{await navigator.clipboard.writeText(txt);toast('Rekap tersalin. Tempelkan di LMS/E-Santri.')}catch(e){toast('Gagal menyalin; silakan tangkap layar.')}}}
- else{c.innerHTML=`<h3>📝 Isi identitas dulu sebelum mengerjakan</h3><small style="color:var(--mute)">Nama dan NIM akan tercantum di hasil latihan dan Simulasi UTS yang kamu kirim ke dosen.</small>${idForm('id')}`;bindIdForm('id')}}
+ else{c.innerHTML=`<h3>📝 Isi identitas dulu sebelum mengerjakan</h3><small style="color:var(--mute)">Nama dan NIM ${SHEET_URL?'dipakai untuk mengirim nilaimu ke dosen secara otomatis':'akan tercantum di hasil latihan dan Simulasi UTS yang kamu kirim ke dosen'}. Tulis dengan benar, ya.</small>${idForm('id')}`;bindIdForm('id')}}
 const passMark=m=>m.uts?75:80;
 const isDone=m=>(S.best[m.id]||0)>=passMark(m);
 
@@ -763,7 +775,7 @@ function startQuiz(m,extra){
   items=[...shuffle(pick).slice(0,14),...m.tahlil]}
  else items=extra||shuffle(m.quiz).slice(0,10);
  items=items.map(q=>{const ok=q.o[0];return{...q,opts:shuffle(q.o),ok}});
- S.q={m:m.id,items,i:0,score:0,ans:[],uts:!!m.uts,start:Date.now()};
+ S.q={m:m.id,items,i:0,score:0,ans:[],uts:!!m.uts,ai:!!extra,start:Date.now()};
  if(m.uts){$('pBody').innerHTML=`<div class="result"><div class="ar" style="font-size:32px;color:var(--pink)">بِسْمِ اللَّهِ</div><h3>Simulasi UTS siap</h3><p>20 soal · 30 menit · pembahasan muncul di akhir.</p><p class="note blue" style="max-width:420px;margin:10px auto">Peserta: <b>${esc(S.id.nama)}</b> · NIM ${esc(S.id.nim)}${S.id.kelas?' · Kelas '+esc(S.id.kelas):''}</p><button class="btn pri" id="go">Mulai sekarang</button></div>`;
   $('go').onclick=()=>{S.q.start=Date.now();startTimer(30*60);renderQ()};return}
  renderQ()}
@@ -794,6 +806,10 @@ function finishQuiz(){stopTimer();const q=S.q,m=byId(q.m),n=q.items.length,nilai
  <p>${pass?'🌸 <b>مَاشَاءَ اللَّهُ!</b> Kamu tuntas di '+(q.uts?'simulasi UTS':'pertemuan ini')+'. Lanjutkan perjalananmu!':'💙 Belum mencapai '+passMark(m)+'. Ndak apa-apa, belajar nahwu itu memang bertahap. Baca ulang materinya lalu coba lagi ya.'}</p>
  <div class="acts" style="justify-content:center"><button class="btn pri" id="again">Ulangi${q.uts?' simulasi':' latihan'}</button>${!q.uts?'<button class="btn blue" id="gen">Soal baru dari Ning Tika (AI)</button>':''}<button class="btn" id="copy">Salin hasil untuk dosen/LMS</button><button class="btn" id="fbk">Minta saran belajar</button></div></div>
  ${wrong.length?`<h3>Pembahasan soal yang belum tepat</h3>${wrong.map(a=>`<div class="fb bad" style="text-align:left"><b>${md(a.q)}</b>${a.ar?`<div class="ar" style="text-align:right">${a.ar}</div>`:'<br>'}Jawabanmu: ${md(a.pick)} · Kunci: <b>${md(a.ok)}</b><br>${md(a.ex)}</div>`).join('')}`:''}<div id="fbOut"></div>`;
+ const sendEl=document.createElement('div');sendEl.className='note blue';sendEl.style.textAlign='center';
+ if(SHEET_URL){sendEl.textContent='⏳ Mengirim nilai ke dosen…';$('pBody').querySelector('.result').appendChild(sendEl);
+  kirimNilai({nama:S.id.nama,nim:S.id.nim,kelas:S.id.kelas,pertemuan:q.uts?'P8 Simulasi UTS':'P'+m.no+' '+m.t,jenis:q.uts?'Simulasi UTS':(q.ai?'Latihan (soal AI)':'Latihan'),nilai,benar:q.score,jumlah:n,durasi:Math.max(1,dur),salah:wrong.map(a=>a.q.replace(/\s+/g,' ').slice(0,90)).join(' | ')})
+  .then(ok=>{sendEl.textContent=ok?'✅ Nilai sudah terkirim ke dosen.':'⚠️ Nilai belum terkirim (koneksi bermasalah). Akan dikirim ulang otomatis saat online. Untuk jaga-jaga, salin hasilnya juga.'})}
  $('again').onclick=()=>startQuiz(m);
  $('copy').onclick=async()=>{const txt=`Rihlah Nahwu – ${q.uts?'Simulasi UTS':'Pertemuan '+m.no+': '+m.t}\n${idLine()}\nNilai: ${nilai} (${q.score}/${n} benar)\nTanggal: ${new Date().toLocaleString('id-ID')}`;try{await navigator.clipboard.writeText(txt);toast('Hasil tersalin. Tempelkan di LMS/E-Santri.')}catch(e){toast('Gagal menyalin; silakan tangkap layar hasil ini.')}};
  $('fbk').onclick=async()=>{const t=aiBox($('fbOut'),'Saran Ning Tika');try{const r=await aiAsk(`Mahasiswa menyelesaikan latihan "${q.uts?'Simulasi UTS':m.t}" dengan nilai ${nilai}. Soal yang salah: ${wrong.map(a=>a.q+' (kunci: '+a.ok+')').join(' | ')||'tidak ada'}. Beri saran belajar yang menyemangati: 3 poin konkret materi yang perlu diulang dan 1 latihan mandiri singkat. Maks 110 kata.`,{onText:x=>{t.classList.remove('typing');t.innerHTML=md(x)}});t.classList.remove('typing');t.innerHTML=md(r)}catch(e){t.classList.remove('typing');t.innerHTML=md(wrong.length?'Mode luring. Fokus ulangi bagian yang salah di atas, buat ringkasan tabel sendiri, lalu kerjakan ulang latihannya besok supaya ingatanmu makin kuat.':'Mode luring. Semua benar, أَحْسَنْتَ! Coba jelaskan ulang materi ini kepada temanmu. Mengajarkan adalah cara belajar terbaik.')}};
@@ -887,7 +903,7 @@ async function sendChat(){const q=$('chatIn').value.trim();if(!q)return;$('chatI
 $('chatSend').onclick=sendChat;$('chatIn').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
 
 /* ================= init ================= */
-renderIdCard();renderHome();updateChips();initAI();
+renderIdCard();renderHome();updateChips();initAI();flushQueue();
 if('speechSynthesis' in window)speechSynthesis.getVoices();
 </script>
 </body>
